@@ -11,7 +11,6 @@ class LabelsController < ApplicationController
 
   def create
     @label = Label.new(label_params)
-    @label.user_id = current_user.id
     if @label.save
       redirect_to labels_path, notice: 'ラベルを登録しました'
     else

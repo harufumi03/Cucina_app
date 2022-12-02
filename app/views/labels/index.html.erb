@@ -3,8 +3,8 @@
 <table class = "table">
   <thead>
     <tr>
-      <th><%= '仕込み項目名' %></th>
-      <th><%= '使用食材' %></th>
+      <th><%= 'カテゴリ名' %></th>
+      <th><%= '登録仕込み数' %></th>
     </tr>
   </thead>
 
@@ -14,7 +14,7 @@
         <td><%= label.name%></td>
         <td><%= label.food_preps.count %></td>
         <td><%= link_to t('common.edit'), edit_label_path(label) %></td>
-        <td><%= button_to t('common.destroy'), label_path(label), method: :delete, data: { confirm: t('common.confirm_destroy') } %></td>
+        <td><%= link_to t('common.destroy'), label_path(label), method: :delete, data: { confirm: t('common.confirm_destroy') } %></td>
       </tr>
     <% end %>
   </tbody>

@@ -1,0 +1,2 @@
+module FoodPrepsHelper
+end

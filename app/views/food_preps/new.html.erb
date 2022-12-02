@@ -1,0 +1,28 @@
+<h1><%= t('.title') %></h1>
+
+<%= form_with(model: @food_prep, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div><br>
+
+  <div class="field">
+    <%= form.label :ingredient %>
+    <%= form.text_area :ingredient %>
+  </div><br>
+
+
+  <div class="field">
+      <%= form.label "カテゴリ" %>
+    <% Label.all.each do |label| %>
+      <%= form.check_box :label_ids, { multiple: true, include_hidden: false }, label[:id] %>
+      <%= label.name %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>

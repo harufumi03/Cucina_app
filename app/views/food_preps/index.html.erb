@@ -13,9 +13,9 @@
       <tr>
         <td><%= food_prep.name %></td>
         <td><%= food_prep.ingredient %></td> 
-        <td><%= button_to t('common.show'), food_prep_path(food_prep), method: :get %></td>
-        <td><%= button_to t('common.edit'), edit_food_prep_path(food_prep), method: :get %></td> 
-        <td><%= button_to t('common.destroy'), food_prep_path(food_prep), method: :delete, data: { confirm: t('common.confirm_destroy') }  %></td> 
+        <td><%= link_to t('common.show'), food_prep_path(food_prep), method: :get %></td>
+        <td><%= link_to t('common.edit'), edit_food_prep_path(food_prep), method: :get %></td> 
+        <td><%= link_to t('common.destroy'), food_prep_path(food_prep), method: :delete, data: { confirm: t('common.confirm_destroy') }  %></td> 
       </tr>
     <% end %> 
   </tbody>  

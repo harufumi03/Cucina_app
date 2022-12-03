@@ -1,0 +1,21 @@
+<h1><%= t('.title') %></h1>
+
+<p>
+  <strong><%= 'name' %>:</strong>
+  <%= @food_prep.name %>
+</p>
+
+<p>
+  <strong><%= 'ingredient' %>:</strong>
+  <%= @food_prep.ingredient %>
+</p>
+
+<p>
+  <strong><%= "category" %>:</strong>
+  <% @food_prep.labels.each do |label| %>
+    <%= label.name %>
+  <% end %>
+</p>
+
+<%= link_to t('common.edit'), edit_food_prep_path(@food_prep) %> |
+<%= link_to t('common.back'), food_preps_path %>

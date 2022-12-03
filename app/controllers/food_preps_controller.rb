@@ -27,11 +27,16 @@ class FoodPrepsController < ApplicationController
   end
 
   def update
-
+    if @food_prep.update(food_prep_params)
+      redirect_to food_preps_path, notice: '仕込みを編集しました'
+    else
+      render :edit
+    end
   end
 
   def destroy
-
+    @food_prep.destroy
+    redirect_to food_preps_path, notice: '仕込みを削除しました'
   end
 
   private
@@ -41,8 +46,6 @@ class FoodPrepsController < ApplicationController
   end
 
   def food_prep_params
-    params.require(:food_prep).permit(:name, :ingredient)
+    params.require(:food_prep).permit(:name, :ingredient, { label_ids: [] })
   end
-end
-
 end

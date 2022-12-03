@@ -15,6 +15,10 @@
     <p class="alert"><%= alert %></p>
     <% if user_signed_in? %>
       <%= link_to "本日の仕込み", food_preps_path %>
+      <%= link_to "仕込み登録", new_food_prep_path %>
+      <%= link_to t('カテゴリ一覧'), labels_path %>
+      <%= link_to t('カテゴリ登録'), new_label_path %>
+      <%= link_to t('common.my_account'), user_path(current_user.id) %>
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
     <% else %>
       <%= link_to "新規登録", new_user_registration_path %>

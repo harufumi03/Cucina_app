@@ -1,0 +1,28 @@
+<h1><%= t('.title') %></h1>
+
+<table class = "table">
+  <thead>
+    <tr>
+      <th><%= "name" %></th>
+      <th><%= "ingredient" %></th>
+      <th><%= "category" %></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @food_preps.each do |food_prep| %>
+      <tr>
+        <td><%= food_prep.name %></td>
+        <td><%= food_prep.ingredient %></td>
+        <td>
+          <% food_prep.labels.each do |label| %>
+            <%= label.name %>
+          <% end %>
+        </td>
+        <td><%= link_to t('common.show'), food_prep_path(food_prep), method: :get %></td>
+        <td><%= link_to t('common.edit'), edit_food_prep_path(food_prep), method: :get %></td> 
+        <td><%= link_to t('common.destroy'), food_prep_path(food_prep), method: :delete, data: { confirm: t('common.confirm_destroy') }  %></td> 
+      </tr>
+    <% end %> 
+  </tbody>  
+</table>

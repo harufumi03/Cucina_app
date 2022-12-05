@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   has_many :select_food_preps
+  has_many :comments, dependent: :destroy
 end

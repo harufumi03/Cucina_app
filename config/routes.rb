@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'select_food_preps/index'
+  get 'select_food_preps/new'
+  get 'select_food_preps/create'
+  get 'select_food_preps/destroy'
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: "users/sessions",

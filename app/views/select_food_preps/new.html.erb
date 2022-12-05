@@ -1,2 +1,19 @@
-<h1>SelectFoodPreps#new</h1>
-<p>Find me in app/views/select_food_preps/new.html.erb</p>
+<h1><%= t('.title') %></h1>
+
+<%= form_with(model: @select_food_prep, local: true) do |form| %>
+
+  <div>
+    <%= form.label :food_prep_id %>
+    <%= form.select :food_prep_id, FoodPrep.pluck(:name, :id)%>
+  </div><br>
+
+  <div>
+    <%= form.label :to_do_at %>
+    <%= form.date_field :to_do_at %>
+  </div><br>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+
+<% end %>

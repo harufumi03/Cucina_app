@@ -10,15 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_30_052908) do
+ActiveRecord::Schema.define(version: 2022_12_05_074551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "food_prep_labels", force: :cascade do |t|
+    t.bigint "food_prep_id", null: false
+    t.bigint "label_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_prep_id"], name: "index_food_prep_labels_on_food_prep_id"
+    t.index ["label_id"], name: "index_food_prep_labels_on_label_id"
+  end
+
   create_table "food_preps", force: :cascade do |t|
     t.string "name"
     t.string "ingredient"
-    t.date "to_do_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -27,6 +35,16 @@ ActiveRecord::Schema.define(version: 2022_11_30_052908) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "select_food_preps", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "food_prep_id", null: false
+    t.date "to_do_at", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["food_prep_id"], name: "index_select_food_preps_on_food_prep_id"
+    t.index ["user_id"], name: "index_select_food_preps_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -42,4 +60,8 @@ ActiveRecord::Schema.define(version: 2022_11_30_052908) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "food_prep_labels", "food_preps"
+  add_foreign_key "food_prep_labels", "labels"
+  add_foreign_key "select_food_preps", "food_preps"
+  add_foreign_key "select_food_preps", "users"
 end

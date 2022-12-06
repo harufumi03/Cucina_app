@@ -18,6 +18,12 @@ class SelectFoodPrepsController < ApplicationController
     end
   end
 
+  def show
+    @select_food_prep = SelectFoodPrep.find(params[:id])
+    @comments = @select_food_prep.comments
+    @comment = @select_food_prep.comments.build
+  end
+
   def destroy
     @select_food_prep = SelectFoodPrep.find(params[:id])
     @select_food_prep.destroy

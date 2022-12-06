@@ -10,10 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_05_074551) do
+ActiveRecord::Schema.define(version: 2022_12_05_082225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.bigint "select_food_prep_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["select_food_prep_id"], name: "index_comments_on_select_food_prep_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
 
   create_table "food_prep_labels", force: :cascade do |t|
     t.bigint "food_prep_id", null: false
@@ -60,6 +70,8 @@ ActiveRecord::Schema.define(version: 2022_12_05_074551) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "comments", "select_food_preps"
+  add_foreign_key "comments", "users"
   add_foreign_key "food_prep_labels", "food_preps"
   add_foreign_key "food_prep_labels", "labels"
   add_foreign_key "select_food_preps", "food_preps"

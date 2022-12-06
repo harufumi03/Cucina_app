@@ -17,8 +17,8 @@
         <td><%= select_food_prep.food_prep.ingredient %></td>
         <td><%= select_food_prep.to_do_at %></td>
         <td><%= select_food_prep.user.name %></td>
-        <td><%= link_to t('common.show'), food_prep_path(select_food_prep), method: :get %></td>
-        <td><%= link_to t('common.destroy'), select_food_prep_path(select_food_prep), method: :delete, data: { confirm: t('common.confirm_destroy') }  %></td> 
+        <td><%= link_to t('コメントする'), select_food_prep_path(select_food_prep), method: :get %></td>
+        <td><%= link_to t('common.destroy'), select_food_prep_path(select_food_prep), method: :delete, data: { confirm: t('common.confirm_destroy') }  %></td>
       </tr>
     <% end %> 
   </tbody>  

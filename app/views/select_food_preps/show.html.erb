@@ -1,0 +1,30 @@
+<h1><%= t('.title') %></h1>
+
+<p>
+  <strong><%= 'name' %>:</strong>
+  <%= @select_food_prep.food_prep.name %>
+</p>
+
+<p>
+  <strong><%= 'ingredient' %>:</strong>
+  <%= @select_food_prep.food_prep.ingredient %>
+</p>
+
+<p>
+  <strong><%= 'to_do_at' %>:</strong>
+  <%= @select_food_prep.to_do_at %>
+</p>
+
+<p>
+  <strong><%= 'do_user' %>:</strong>
+  <%= @select_food_prep.user.name %>
+</p>
+
+
+
+<div id="comments_area">
+  <%= render partial: 'comments/index', locals: { comments: @comments, select_food_prep: @select_food_prep } %>
+</div>
+<div id="form_area">
+  <%= render partial: 'comments/form', locals: { comment: @comment, select_food_prep: @select_food_prep } %>
+</div>

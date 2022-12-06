@@ -1,0 +1,9 @@
+<%= render 'layouts/flash' %>
+<% comments.order(created_at: :asc).each do |comment| %>
+  <div id ="this_comment_<%= comment.id %>">
+    <%= simple_format(comment.content) %>
+    <span>投稿日時:<%= time_ago_in_words(comment.created_at) %></span>
+    <span><%= link_to 'Edit', edit_select_food_prep_comment_path(select_food_prep, comment), remote: true %></span>
+    <span><%= link_to 'Destroy', select_food_prep_comment_path(comment.select_food_prep_id, comment.id), data: { confirm: "本当に削除しますか?"}, method: :delete, remote: true %></span>
+  </div>
+<% end %>

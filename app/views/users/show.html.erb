@@ -2,6 +2,14 @@
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 
+
+<% @groups.each do |group| %>
+  <% if group.users.ids.include?(current_user.id) %>
+    <p>グループ名 : <%= group.name %></p>
+    <%= link_to "所属グループ詳細", group_path(@user.groups.ids) %>|
+  <%end%>
+<% end %>
+
 <%= link_to "編集", edit_user_registration_path(@user.id) %>
 |
 <%= link_to "戻る", food_preps_path, id: "back" %>

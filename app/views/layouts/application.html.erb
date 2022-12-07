@@ -14,6 +14,7 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <% if user_signed_in? %>
+      <%= link_to "グループ作成", new_group_path %>
       <%= link_to "仕込み一覧", food_preps_path %>
       <%= link_to "仕込み登録", new_food_prep_path %>
       <%= link_to "仕込みを選択する", new_select_food_prep_path %>

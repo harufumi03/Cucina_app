@@ -21,6 +21,14 @@
     <% end %>
   </div>
 
+  <div class="field">
+      <%= form.label "グループ名" %>
+    <% @groups.each do |group| %>
+      <%= form.check_box :group_id, { multiple: false, include_hidden: false }, group[:group_id] %>
+      <%= group.group.name %>
+    <% end %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

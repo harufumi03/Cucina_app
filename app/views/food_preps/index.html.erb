@@ -1,4 +1,4 @@
-<h1><%= t('.title') %></h1>
+<h1><%= "#{}の仕込み一覧" %></h1>
 
 <table class = "table">
   <thead>
@@ -10,7 +10,7 @@
   </thead>
 
   <tbody>
-    <% @food_preps.each do |food_prep| %>
+    <% @group_food_preps.each do |food_prep| %>
       <tr>
         <td><%= food_prep.name %></td>
         <td><%= food_prep.ingredient %></td>

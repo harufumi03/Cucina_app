@@ -3,10 +3,12 @@ class FoodPrepsController < ApplicationController
   
   def index
     @food_preps = FoodPrep.all
+    @group_food_preps = @food_preps.where(group_id: current_user.group_users.ids)
   end
 
   def new
     @food_prep = FoodPrep.new
+    @groups = GroupUser.where(user_id: current_user.id)
   end
 
   def create
@@ -46,6 +48,6 @@ class FoodPrepsController < ApplicationController
   end
 
   def food_prep_params
-    params.require(:food_prep).permit(:name, :ingredient, { label_ids: [] })
+    params.require(:food_prep).permit(:name, :ingredient, { label_ids: [] }, :group_id)
   end
 end

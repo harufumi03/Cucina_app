@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_05_082225) do
+ActiveRecord::Schema.define(version: 2022_12_07_081442) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,24 @@ ActiveRecord::Schema.define(version: 2022_12_05_082225) do
   create_table "food_preps", force: :cascade do |t|
     t.string "name"
     t.string "ingredient"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.bigint "group_id"
+    t.index ["group_id"], name: "index_food_preps_on_group_id"
+  end
+
+  create_table "group_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "group_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_group_users_on_group_id"
+    t.index ["user_id"], name: "index_group_users_on_user_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -74,6 +92,9 @@ ActiveRecord::Schema.define(version: 2022_12_05_082225) do
   add_foreign_key "comments", "users"
   add_foreign_key "food_prep_labels", "food_preps"
   add_foreign_key "food_prep_labels", "labels"
+  add_foreign_key "food_preps", "groups"
+  add_foreign_key "group_users", "groups"
+  add_foreign_key "group_users", "users"
   add_foreign_key "select_food_preps", "food_preps"
   add_foreign_key "select_food_preps", "users"
 end

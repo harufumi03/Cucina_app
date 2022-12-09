@@ -2,20 +2,20 @@
 
 <p>
   <strong><%= 'name' %>:</strong>
-  <%= @group_food_prep.name %>
+  <%= @food_prep.name %>
 </p>
 
 <p>
   <strong><%= 'ingredient' %>:</strong>
-  <%= @group_food_prep.ingredient %>
+  <%= @food_prep.ingredient %>
 </p>
 
 <p>
   <strong><%= "category" %>:</strong>
-  <% @group_food_prep.labels.each do |label| %>
+  <% @food_prep.labels.each do |label| %>
     <%= label.name %>
   <% end %>
 </p>
 
-<%= link_to t('common.edit'), edit_food_prep_path(@gruop_food_prep) %> |
-<%= link_to t('common.back'), food_preps_path(@group_food_prep) %>
+<%= link_to t('common.edit'), edit_food_prep_path(@food_prep) %> |
+<%= link_to t('common.back'), food_preps_path(@food_prep) %>

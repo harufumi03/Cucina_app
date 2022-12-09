@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 2022_12_07_081442) do
     t.string "ingredient"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "group_id"
+    t.index ["group_id"], name: "index_food_preps_on_group_id"
   end
 
   create_table "group_users", force: :cascade do |t|
@@ -90,6 +92,7 @@ ActiveRecord::Schema.define(version: 2022_12_07_081442) do
   add_foreign_key "comments", "users"
   add_foreign_key "food_prep_labels", "food_preps"
   add_foreign_key "food_prep_labels", "labels"
+  add_foreign_key "food_preps", "groups"
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "select_food_preps", "food_preps"

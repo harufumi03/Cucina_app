@@ -14,18 +14,18 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <% if user_signed_in? %>
-      <%= link_to "グループ作成", new_group_path %>
-      <%= link_to "仕込み一覧", food_preps_path %>
-      <%= link_to "仕込み登録", new_food_prep_path %>
-      <%= link_to "仕込みを選択する", new_select_food_prep_path %>
-      <%= link_to "本日の仕込み", select_food_preps_path %>
-      <%= link_to t('カテゴリ一覧'), labels_path %>
-      <%= link_to t('カテゴリ登録'), new_label_path %>
-      <%= link_to t('common.my_account'), user_path(current_user.id) %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+      <li><%= link_to "グループ作成", new_group_path %></li>
+      <li><%= link_to "仕込み一覧", food_preps_path %></li>
+      <li><%= link_to "仕込み登録", new_food_prep_path %></li>
+      <li><%= link_to "仕込みを選択する", new_select_food_prep_path %></li>
+      <li><%= link_to "本日の仕込み", select_food_preps_path %></li>
+      <li><%= link_to t('カテゴリ一覧'), labels_path %></li>
+      <li><%= link_to t('カテゴリ登録'), new_label_path %></li>
+      <li><%= link_to t('common.my_account'), user_path(current_user.id) %></li>
+      <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
     <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
+      <li><%= link_to "新規登録", new_user_registration_path %></li>
+      <li><%= link_to "ログイン", new_user_session_path %></li>
     <% end %>
     <%= yield %>
   </body>

@@ -6,6 +6,7 @@ class SelectFoodPrepsController < ApplicationController
 
   def new
     @select_food_prep = SelectFoodPrep.new
+    @groups = GroupUser.where(user_id: current_user.id)
   end
 
   def create

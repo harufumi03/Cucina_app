@@ -1,8 +1,10 @@
-<h1>Users#show</h1>
+<h1>ユーザ詳細</h1>
 <p>名前 : <%= @user.name %></p>
 <p>メールアドレス : <%= @user.email %></p>
 
-
+<% if current_user.admin? %>
+  <%= link_to '管理者ページ', rails_admin_path %>|
+<% end %>
 <% @groups.each do |group| %>
   <% if group.users.ids.include?(current_user.id) %>
     <p>グループ名 : <%= group.name %></p>

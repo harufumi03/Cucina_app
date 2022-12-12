@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   }
   root 'users#show'
   resources :users, only: [:index, :show]
-  resources :food_preps
+  resources :food_preps do
+    collection do
+      get 'search'
+    end
+  end  
   resources :labels
   resources :select_food_preps do
     resources :comments, only: [:create, :edit, :update, :destroy]

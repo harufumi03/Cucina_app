@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_09_054931) do
+ActiveRecord::Schema.define(version: 2022_12_11_141528) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,7 +71,9 @@ ActiveRecord::Schema.define(version: 2022_12_09_054931) do
     t.date "to_do_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "group_id"
     t.index ["food_prep_id"], name: "index_select_food_preps_on_food_prep_id"
+    t.index ["group_id"], name: "index_select_food_preps_on_group_id"
     t.index ["user_id"], name: "index_select_food_preps_on_user_id"
   end
 
@@ -97,5 +99,6 @@ ActiveRecord::Schema.define(version: 2022_12_09_054931) do
   add_foreign_key "group_users", "groups"
   add_foreign_key "group_users", "users"
   add_foreign_key "select_food_preps", "food_preps"
+  add_foreign_key "select_food_preps", "groups"
   add_foreign_key "select_food_preps", "users"
 end

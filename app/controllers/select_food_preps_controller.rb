@@ -6,6 +6,7 @@ class SelectFoodPrepsController < ApplicationController
 
   def new
     @select_food_prep = SelectFoodPrep.new
+    @groups = GroupUser.where(user_id: current_user.id)
   end
 
   def create
@@ -34,6 +35,6 @@ class SelectFoodPrepsController < ApplicationController
   private
 
   def select_food_prep_params
-    params.require(:select_food_prep).permit(:user_id, :food_prep_id, :to_do_at)
+    params.require(:select_food_prep).permit(:user_id, :food_prep_id, :to_do_at, :group_id)
   end
 end

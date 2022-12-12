@@ -7,6 +7,14 @@
     <%= form.select :food_prep_id, FoodPrep.pluck(:name, :id)%>
   </div><br>
 
+  <div class="field">
+      <%= form.label "グループ名" %>
+    <% @groups.each do |group| %>
+      <%= form.check_box :group_id, { multiple: false, include_hidden: false }, group[:group_id] %>
+      <%= group.group.name %>
+    <% end %>
+  </div><br>
+
   <div>
     <%= form.label :to_do_at %>
     <%= form.date_field :to_do_at %>

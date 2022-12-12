@@ -38,7 +38,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem "capistrano", "~> 3.10", require: false 
   gem "capistrano-rails", "~> 1.6", require: false 
-  gem 'capistrano-safe-deploy-to' 
+  gem 'capistrano-safe-deploy-to'
+  gem 'capistrano3-unicorn'
 end
 
 group :test do
@@ -53,3 +54,4 @@ gem 'rexml'
 gem 'rails_admin', '~> 3.0'
 gem 'simple_calendar', '~> 2.0'
 gem 'ransack'
+gem 'unicorn'

@@ -1,10 +1,10 @@
-<h1><%= t('.title') %></h1>
+<h1><%= "仕込み選択ページ" %></h1>
 
 <%= form_with(model: @select_food_prep, local: true) do |form| %>
 
   <div>
-    <%= form.label :food_prep_id %>
-    <%= form.select :food_prep_id, FoodPrep.pluck(:name, :id)%>
+    <%= form.label "仕込み項目名" %>
+    <%= form.select :food_prep_id, FoodPrep.where(group_id: current_user.groups.ids).pluck(:name, :id)%>
   </div><br>
 
   <div class="field">
@@ -16,12 +16,12 @@
   </div><br>
 
   <div>
-    <%= form.label :to_do_at %>
+    <%= form.label "実施日" %>
     <%= form.date_field :to_do_at %>
   </div><br>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "追加する" %>
   </div>
 
 <% end %>

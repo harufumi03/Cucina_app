@@ -1,8 +1,8 @@
 <h1>グループ編集</h1>
 
 <%= form_with(model: @group, local: true) do |f| %>
-  <p><%= f.label :name %></p>
+  <p><%= f.label 'グループ名' %></p>
   <p><%= f.text_field :name %></p>
 
-  <p><%= f.submit %></p>
+  <p><%= f.submit '編集する' %></p>
 <% end %>

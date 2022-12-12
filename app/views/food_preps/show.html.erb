@@ -1,21 +1,21 @@
-<h1><%= t('.title') %></h1>
+<h1><%= '仕込み詳細ページ' %></h1>
 
 <p>
-  <strong><%= 'name' %>:</strong>
+  <strong><%= '仕込み項目名' %>:</strong>
   <%= @food_prep.name %>
 </p>
 
 <p>
-  <strong><%= 'ingredient' %>:</strong>
+  <strong><%= '使用食材' %>:</strong>
   <%= @food_prep.ingredient %>
 </p>
 
 <p>
-  <strong><%= "category" %>:</strong>
+  <strong><%= "カテゴリ" %>:</strong>
   <% @food_prep.labels.each do |label| %>
     <%= label.name %>
   <% end %>
 </p>
 
-<%= link_to t('common.edit'), edit_food_prep_path(@food_prep) %> |
-<%= link_to t('common.back'), food_preps_path(@food_prep) %>
+<%= link_to t('編集する'), edit_food_prep_path(@food_prep) %> |
+<%= link_to t('戻る'), food_preps_path(@food_prep) %>

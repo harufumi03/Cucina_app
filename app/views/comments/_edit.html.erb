@@ -2,11 +2,11 @@
 <div class="comment_edit_form">
   <%= form_with(model: [select_food_prep, comment], local: false) do |form| %>
     <div class="field">
-      <%= form.text_area :content, id: "comment_content_#{select_food_prep.id}" %>
+      <%= form.text_area "コメント内容", id: "comment_content_#{select_food_prep.id}" %>
     </div>
 
     <div class="actions">
-      <%= form.submit %>
+      <%= form.submit "編集" %>
     </div>
 
     <%= link_to :back do %>

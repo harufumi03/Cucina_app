@@ -4,11 +4,11 @@
 <table class = "table">
   <thead>
     <tr>
-      <th><%= "executed"%>
-      <th><%= "name" %></th>
-      <th><%= "ingredient" %></th>
-      <th><%= "to_do_at" %></th>
-      <th><%= "user" %></th>
+      <th><%= "実行済み"%></th>
+      <th><%= "仕込み項目名" %></th>
+      <th><%= "使用食材" %></th>
+      <th><%= "実施日" %></th>
+      <th><%= "担当者" %></th>
     </tr>
   </thead>
 
@@ -22,20 +22,21 @@
         <td><%= select_food_prep.to_do_at %></td>
         <td><%= select_food_prep.user.name %></td>
         <td><%= link_to t('詳細'), select_food_prep_path(select_food_prep), method: :get %></td>
-        <td><%= link_to t('common.destroy'), select_food_prep_path(select_food_prep), method: :delete, data: { confirm: t('common.confirm_destroy') }  %></td>
+        <td><%= link_to t('削除'), select_food_prep_path(select_food_prep), method: :delete, data: { confirm: "本当に削除しますか？" }  %></td>
       </tr>
       <% end %>
     <% end %>  
   </tbody>  
 </table>
-  <div class = "simple_calendar">
-    <%= month_calendar events: @group_select_food_preps do |date, food_preps| %>
-      <%= date.day %>
 
-    <% food_preps.each do |food_prep| %>
-      <div>
-        <%= link_to food_prep.food_prep.name, food_prep %>
-      </div>
-    <% end %>
+<div class = "simple_calendar">
+  <%= month_calendar events: @group_select_food_preps do |date, food_preps| %>
+    <%= date.day %>
+
+  <% food_preps.each do |food_prep| %>
+    <div>
+      <%= link_to food_prep.food_prep.name, food_prep %>
+    </div>
   <% end %>
-  </div>
+<% end %>
+</div>

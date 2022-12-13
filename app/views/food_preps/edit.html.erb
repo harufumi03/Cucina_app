@@ -1,14 +1,14 @@
-<h1><%= t('.title') %></h1>
+<h1><%= '仕込み編集' %></h1>
 
 <%= form_with(model: @food_prep, local: true) do |form| %>
 
   <div class="field">
-    <%= form.label :name %>
+    <%= form.label "仕込み項目名" %>
     <%= form.text_field :name %>
   </div><br>
 
   <div class="field">
-    <%= form.label :ingredient %>
+    <%= form.label "使用食材" %>
     <%= form.text_area :ingredient %>
   </div><br>
 
@@ -22,7 +22,8 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit '編集する'%>
   </div>
 
+<%= link_to t('戻る'), food_preps_path(@food_prep) %>
 <% end %>

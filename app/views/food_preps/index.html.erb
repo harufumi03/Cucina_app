@@ -1,8 +1,8 @@
 <h1><%= "登録済みの仕込み一覧" %></h1>
 
-<h1>仕込み検索</h1>
+<h2>仕込み検索</h2>
 <%= search_form_for @search_food_prep, url: search_food_preps_path do |f| %>
-  <%= f.label :name_cont, '仕込み登録名' %>
+  <%= f.label :name_cont, '仕込み項目名' %>
   <%= f.search_field :name_cont %>
   <br>
   <%= f.submit '検索' %>
@@ -11,9 +11,9 @@
 <table class = "table">
   <thead>
     <tr>
-      <th><%= "name" %></th>
-      <th><%= "ingredient" %></th>
-      <th><%= "category" %></th>
+      <th><%= "仕込み項目名" %></th>
+      <th><%= "使用食材" %></th>
+      <th><%= "カテゴリ" %></th>
     </tr>
   </thead>
 
@@ -27,9 +27,9 @@
             <%= label.name %>
           <% end %>
         </td>
-        <td><%= link_to t('common.show'), food_prep_path(food_prep), method: :get %></td>
-        <td><%= link_to t('common.edit'), edit_food_prep_path(food_prep), method: :get %></td> 
-        <td><%= link_to t('common.destroy'), food_prep_path(food_prep), method: :delete, data: { confirm: t('common.confirm_destroy') }  %></td> 
+        <td><%= link_to t('詳細を見る'), food_prep_path(food_prep), method: :get %></td>
+        <td><%= link_to t('編集する'), edit_food_prep_path(food_prep), method: :get %></td> 
+        <td><%= link_to t('削除する'), food_prep_path(food_prep), method: :delete, data: { confirm: '本当に削除しますか？' }  %></td> 
       </tr>
     <% end %> 
   </tbody>  

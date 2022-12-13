@@ -1,15 +1,15 @@
-<h1><%= t('.title') %></h1>
+<h1><%= 'カテゴリ編集' %></h1>
 
 <%= form_with(model: @label, local: true) do |form| %>
   
 <div class="field">
-  <%= form.label :name %>
+  <%= form.label 'カテゴリ名' %>
   <%= form.text_field :name, class: "form-control" %>
 </div>
 
 <div class="actions">
-  <%= form.submit class: "btn btn-sm btn-info" %>
+  <%= form.submit '編集する', class: "btn btn-sm btn-info" %>
 </div>
 <% end %>
 
-<%= link_to t('common.back'), labels_path, id: "back" %>
+<%= link_to t('戻る'), labels_path, id: "back" %>

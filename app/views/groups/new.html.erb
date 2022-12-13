@@ -1,8 +1,8 @@
 <h1>グループ作成</h1>
 
 <%= form_with(model: @group, local: true) do |f| %>
-  <p><%= f.label :name %></p>
+  <p><%= f.label 'グループ名' %></p>
   <p><%= f.text_field :name %></p>
 
-  <p><%= f.submit %></p>
+  <p><%= f.submit '作成する' %></p>
 <% end %>

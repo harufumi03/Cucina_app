@@ -2,7 +2,7 @@
 
 <%= form_with(model: @group, local: true) do |f| %>
   <p><%= f.label 'グループ名' %></p>
-  <p><%= f.text_field :name %></p>
+  <p><%= f.text_field :name, placeholder: "レストラン:cucina" %></p>
 
   <p><%= f.submit '作成する' %></p>
 <% end %>

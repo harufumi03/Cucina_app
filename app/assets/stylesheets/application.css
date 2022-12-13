@@ -14,3 +14,7 @@
  *= require_tree .
  *= require_self
  */
+ h1,h2 {
+  font-family: 'Noto Sans JP', sans-serif;
+  text-align: center;
+}

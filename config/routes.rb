@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: "users/sessions",
   }
-  root 'users#show'
+  root 'top#index'
   resources :users, only: [:index, :show]
   resources :food_preps do
     collection do

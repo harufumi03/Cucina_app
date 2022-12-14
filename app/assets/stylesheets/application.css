@@ -14,7 +14,21 @@
  *= require_tree .
  *= require_self
  */
- h1,h2 {
+h1,h2 {
   font-family: 'Noto Sans JP', sans-serif;
   text-align: center;
+}
+
+.background {
+  background-color: #C2EEFF;
+}
+
+
+.global_navigation {
+  text-align: center;
+}
+
+.image_root {
+  text-align: center;
+  
 }

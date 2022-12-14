@@ -1,4 +1,8 @@
-
+<div class="image_root">
+  <%= link_to root_path do %>
+    <%= image_tag 'textlogo.png', :size =>'500x190' %>
+  <% end %>
+</div>     
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="container">
     <div class="row justify-content-center">

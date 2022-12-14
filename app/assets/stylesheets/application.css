@@ -14,15 +14,15 @@
  *= require_tree .
  *= require_self
  */
-h1,h2,h3 {
+h1,h2 {
   font-family: 'Noto Sans JP', sans-serif;
   text-align: center;
   font-weight: bold;
 }
 
-.background {
-  background-color: #C2EEFF;
-}
+/* .background {
+  background-color: #C2EEFF;;
+} */
 
 
 .global_navigation {
@@ -32,3 +32,13 @@ h1,h2,h3 {
 .image_root {
   text-align: center;
 }
+
+/* .navbar {
+  height: 80px;
+  width: 100%;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  box-sizing: border-box;
+} */

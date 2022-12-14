@@ -1,8 +1,21 @@
-<h1>グループ作成</h1>
 
 <%= form_with(model: @group, local: true) do |f| %>
-  <p><%= f.label 'グループ名' %></p>
-  <p><%= f.text_field :name, placeholder: "レストラン:cucina" %></p>
-
-  <p><%= f.submit '作成する' %></p>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="card">
+          <div class="card-body">
+            <h1>グループ作成</h1>
+            <div class="form-group">
+              <p><%= f.label 'グループ名' %></p>
+              <p><%= f.text_field :name, placeholder: "レストラン:cucina", class: "form-control" %></p>
+            </div>
+            <div class="button">  
+              <%= f.submit '作成する', class: "btn btn-info" %>
+            </div>  
+          </div>
+        </div>
+      </div>
+    </div>        
+  </div>  
 <% end %>

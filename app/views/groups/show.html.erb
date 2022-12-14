@@ -1,24 +1,38 @@
-<h1>グループ詳細</h1>
-<h3>グループ名</h3>
-<p><%= @group.name %></p>
-<h3>オーナー</h3>
-<p><%= @group.owner.name %>
-<h3>メンバー</h3>
-<% @group.users.each do |user| %>
-  <p><%= user.name %></p>
-<% end %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="card">
+        <div class="card-body">
+          <h1>グループ詳細</h1>
+          <h3>グループ名</h3>
+          <p><%= @group.name %></p>
+          <h3>オーナー</h3>
+          <p><%= @group.owner.name %>
+          <h3>メンバー</h3>
+          <% @group.users.each do |user| %>
+            <p><%= user.name %></p>
+          <% end %>
 
-<h3>招待</h3>
-<%= form_with(model: :group_user, scope: :post, url: group_group_users_path(@group), local: true) do |f| %>
-  <%= f.label :email %>
-  <%= f.email_field :email %>
-  <button type="submit">送信</button>
-<% end %>
-<% if current_user == @group.owner %>
-  <%= link_to "グループを編集", edit_group_path(@group) %>
-  <%= link_to "グループを削除", @group, method: :delete, data:{ confirm: "削除しますか？"} %>
-<% else %>
-  <% if @group.users.ids.include?(current_user.id) %>
-    <%= link_to "グループから退出", group_group_user_path(@group), method: :delete, data: { confirm: "グループから退出しますか？"} %>
-  <% end %>
-<% end %>  
+          <h3>招待</h3>
+          <%= form_with(model: :group_user, scope: :post, url: group_group_users_path(@group), local: true) do |f| %>
+            <%= f.label :email %>
+            <%= f.email_field :email, class: "form-control", placeholder: "sample@example.com" %>
+            <div class="button">
+              <%= f.submit '招待する', class: "btn btn-info" %>
+            </div>
+          <% end %>
+          <% if current_user == @group.owner %>
+            <%= link_to "グループを編集", edit_group_path(@group) %>
+            <%= link_to "グループを削除", @group, method: :delete, data:{ confirm: "削除しますか？"} %>
+          <% else %>
+            <% if @group.users.ids.include?(current_user.id) %>
+              <%= link_to "グループから退出", group_group_user_path(@group), method: :delete, data: { confirm: "グループから退出しますか？"} %>
+            <% end %>
+          <% end %>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>        
+</div>  
+  

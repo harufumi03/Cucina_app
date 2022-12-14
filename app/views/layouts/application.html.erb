@@ -15,8 +15,10 @@
 
   <body class="background">
     <div class="image_root">
-        <%= link_to image_tag("logo_transparent2.png"), "/" %>
-    </div>  
+      <%= link_to root_path do %>
+        <%= image_tag 'textlogo.png', :size =>'500x190' %>
+      <% end %>
+    </div>     
     <div class="global_navigation">  
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>

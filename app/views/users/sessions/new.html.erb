@@ -8,16 +8,12 @@
             <div class="form-group">
               <h2>ログイン</h2>
               <%= f.label "メールアドレス"%><br />
-              <%# <div class="col-sm-10"> %>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
-              <%# </div>   %>
             </div>
 
             <div class="form-group">
               <%= f.label "パスワード" %><br/>
-              <%# <div class="col-sm-10"> %>
                 <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "form-control" %>
-              <%# </div>   %>
             </div>
 
             <% if devise_mapping.rememberable? %>

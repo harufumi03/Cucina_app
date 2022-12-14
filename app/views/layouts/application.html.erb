@@ -22,22 +22,22 @@
     <div class="global_navigation">  
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-      <% if user_signed_in? %>
-        <li><%= link_to "グループ作成", new_group_path %></li>
-        <li><%= link_to "仕込み一覧", food_preps_path %></li>
-        <li><%= link_to "仕込み登録", new_food_prep_path %></li>
-        <li><%= link_to "仕込みを選択する", new_select_food_prep_path %></li>
-        <li><%= link_to "本日の仕込み", select_food_preps_path %></li>
-        <li><%= link_to 'カテゴリ一覧', labels_path %></li>
-        <li><%= link_to 'カテゴリ登録', new_label_path %></li>
-        <li><%= link_to 'アカウント詳細', user_path(current_user.id) %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-      <% end %>
+        <% if user_signed_in? %>
+          <li><%= link_to "グループ作成", new_group_path %></li>
+          <li><%= link_to "仕込み一覧", food_preps_path %></li>
+          <li><%= link_to "仕込み登録", new_food_prep_path %></li>
+          <li><%= link_to "仕込みを選択する", new_select_food_prep_path %></li>
+          <li><%= link_to "本日の仕込み", select_food_preps_path %></li>
+          <li><%= link_to 'カテゴリ一覧', labels_path %></li>
+          <li><%= link_to 'カテゴリ登録', new_label_path %></li>
+          <li><%= link_to 'アカウント詳細', user_path(current_user.id) %></li>
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>
+          <li><%= link_to "ログイン", new_user_session_path %></li>
+        <% end %>
       <%= yield %>
-      </div>
+    </div>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

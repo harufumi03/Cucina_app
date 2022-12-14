@@ -1,14 +1,14 @@
 <h1>グループ詳細</h1>
-<h2>グループ名</h2>
+<h3>グループ名</h3>
 <p><%= @group.name %></p>
-<h2>オーナー</h2>
+<h3>オーナー</h3>
 <p><%= @group.owner.name %>
-<h2>メンバー</h2>
+<h3>メンバー</h3>
 <% @group.users.each do |user| %>
   <p><%= user.name %></p>
 <% end %>
 
-<h2>招待</h2>
+<h3>招待</h3>
 <%= form_with(model: :group_user, scope: :post, url: group_group_users_path(@group), local: true) do |f| %>
   <%= f.label :email %>
   <%= f.email_field :email %>

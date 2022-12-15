@@ -42,13 +42,16 @@ h1,h2 {
   right: 0;
   box-sizing: border-box;
 } */
+.main {
+  text-align: center;
+}
 
-.footer {
+/* .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   /* Set the fixed height of the footer here */
-  height: 60px;
+  /* height: 60px;
   background-color: #C2EEFF;
 }
 body > .container {
@@ -61,8 +64,25 @@ body > .container {
 .footer > .container {
   padding-right: 15px;
   padding-left: 15px;
-}
+} */ 
 
 /* .navbar-brand {
   color: #0000FF;
 } */
+
+/* footer {
+  /* position: fixed; */
+  /* width: 100%;
+  left: 0;
+  bottom: 0;
+  height: 5%;
+  background-color: #C2EEFF;
+  color: black;
+  text-align: center;
+  } */ 
+.container {
+  width: auto;
+  max-width: 680px;
+  padding: 0 15px;
+  text-align: center;
+}

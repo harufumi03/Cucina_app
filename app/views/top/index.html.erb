@@ -16,12 +16,11 @@
 <p>チーム全体で業務管理を行うことで効率を上げます</p>
 <p>チームで協力しお客様に最高の料理を提供しましょう</p>
 <br>
-<div class="text-center">
-  <%= link_to "ログイン", new_user_session_path, class: "btn btn-info btn-block" %><br>
-  <%= link_to "新規登録", new_user_registration_path, class: "btn btn-info btn-block" %><br>
-  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-primary btn-block" %><br>
-  <%= link_to '管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post, class: "btn btn-primary btn-block" %><br>
-</div>
+<%= link_to "ログイン", new_user_session_path, class: "btn btn-info" %><br><br>
+<%= link_to "新規登録", new_user_registration_path, class: "btn btn-info" %><br><br>
+<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-primary" %><br><br>
+<%= link_to '管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post, class: "btn btn-primary" %><br>
+
 
 
 

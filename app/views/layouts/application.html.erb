@@ -17,7 +17,7 @@
     <div class="global_navigation">  
         <% if user_signed_in? %>
           <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#C2EEFF;">
-            <a class="navbar-brand" href="/" style="">Cucina</a>
+            <a class="navbar-brand" href="/" style="color:#0000FF;">Cucina</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -53,20 +53,25 @@
             </form>
           </nav>
         <% end %>
-        <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+    </div> 
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class = "main">
       <%= yield %>
     </div>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <footer class="footer mt-auto py-3" style="background-color:#C2EEFF;">
+      <div class="container">
+        <span class="text-muted">Copyright ©Cucina 2022 HarufumiHashimoto.</span>
+      </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
-  <footer class="footer">
-    <div class="container">
-      <p class="text-muted" style="text-align: center;">Copyright © 2022 HarufumiHashimoto.</p>
-    </div>
-  </footer>
 </html>
-         
-          <%# <li><%= link_to "仕込み一覧", food_preps_path, class:"nav-link" %></li> 
-          <%# <li><%= link_to 'カテゴリ登録', new_label_path, class:"nav-link" %></li> 
+    <%# <footer class="footer">
+      <div class="container">
+        <p class="text-muted" style="text-align: center;">Copyright © 2022 HarufumiHashimoto.</p>
+      </div>
+    </footer> %>
+

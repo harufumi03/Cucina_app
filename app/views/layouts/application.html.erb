@@ -5,39 +5,73 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=M+PLUS+1:wght@400;700&family=Noto+Sans+JP&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
   </head>
 
   <body class="background">
-    <div class="image_root">
-        <%= link_to image_tag("logo_transparent2.png"), "/" %>
-    </div>  
     <div class="global_navigation">  
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
-      <% if user_signed_in? %>
-        <li><%= link_to "グループ作成", new_group_path %></li>
-        <li><%= link_to "仕込み一覧", food_preps_path %></li>
-        <li><%= link_to "仕込み登録", new_food_prep_path %></li>
-        <li><%= link_to "仕込みを選択する", new_select_food_prep_path %></li>
-        <li><%= link_to "本日の仕込み", select_food_preps_path %></li>
-        <li><%= link_to 'カテゴリ一覧', labels_path %></li>
-        <li><%= link_to 'カテゴリ登録', new_label_path %></li>
-        <li><%= link_to 'アカウント詳細', user_path(current_user.id) %></li>
-        <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
-      <% else %>
-        <li><%= link_to "新規登録", new_user_registration_path %></li>
-        <li><%= link_to "ログイン", new_user_session_path %></li>
-      <% end %>
+        <% if user_signed_in? %>
+          <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#C2EEFF;">
+            <a class="navbar-brand" href="/" style="color:#0000FF;">Cucina</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <%= link_to "登録済仕込み一覧", food_preps_path, class:"nav-link"%><span class="sr-only">(current)</span>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "本日の仕込み", select_food_preps_path, class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "仕込みを選択する", new_select_food_prep_path, class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'カテゴリ一覧', labels_path, class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to 'アカウント詳細', user_path(current_user.id), class:"nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link" %>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        <% else %>
+          <nav class="navbar navbar-light" style="background-color:#C2EEFF;">
+            <a class="navbar-brand" href="/" style="color:#0000FF;">Cucina</a>
+            <form class="form-inline">
+              <%= link_to "新規登録", new_user_registration_path %> /
+              <%= link_to "ログイン", new_user_session_path %>
+            </form>
+          </nav>
+        <% end %>
+    </div> 
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <div class = "main">
       <%= yield %>
+    </div>
+    <footer class="footer mt-auto py-3" style="background-color:#C2EEFF;">
+      <div class="container">
+        <span class="text-muted">Copyright ©Cucina 2022 HarufumiHashimoto.</span>
       </div>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </footer>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   </body>
 </html>
+    <%# <footer class="footer">
+      <div class="container">
+        <p class="text-muted" style="text-align: center;">Copyright © 2022 HarufumiHashimoto.</p>
+      </div>
+    </footer> %>
+

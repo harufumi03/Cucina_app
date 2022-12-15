@@ -1,17 +1,32 @@
-<h1>ユーザ詳細</h1>
-<p>名前 : <%= @user.name %></p>
-<p>メールアドレス : <%= @user.email %></p>
-
+<%= link_to "グループを作成する", new_group_path, class: "btn btn-primary btn-lg" %><br><br>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="card">
+          <div class="card-body">
+            <h1>ユーザ詳細</h1>
+            <p>名前 : <%= @user.name %></p>
+            <p>メールアドレス : <%= @user.email %></p>
+            <% @groups.each do |group| %>
+              <% if group.users.ids.include?(current_user.id) %>
+                <p>グループ名 : <%= group.name %></p>
+              <%end%>  
+            <%end%>  
+          </div>
+        </div>
+      </div>
+    </div>        
+  </div>  
+<br>
 <% if current_user.admin? %>
-  <%= link_to '管理者ページ', rails_admin_path %>|
+  <%= link_to '管理者ページ', rails_admin_path, class: "btn btn-secondary btn-sm" %>
 <% end %>
 <% @groups.each do |group| %>
   <% if group.users.ids.include?(current_user.id) %>
-    <p>グループ名 : <%= group.name %></p>
-    <%= link_to "所属グループ詳細", group_path(@user.groups.ids) %>|
+    <%= link_to "所属グループ詳細", group_path(@user.groups.ids), class: "btn btn-info btn-sm" %>
   <%end%>
 <% end %>
 
-<%= link_to "編集", edit_user_registration_path(@user.id) %>
-|
-<%= link_to "戻る", food_preps_path, id: "back" %>
+<%= link_to "アカウント編集", edit_user_registration_path(@user.id), class: "btn btn-success btn-sm" %>
+<br><br>
+<%= link_to "戻る", food_preps_path, id: "back", class: "btn btn-primary btn-sm" %>

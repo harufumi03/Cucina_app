@@ -1,12 +1,12 @@
 <div class="comment-form">
   <%= form_with(model: [select_food_prep, comment], local: false) do |form| %>
-    <div class="field">
+    <div class="form-group">
       <%= form.label :content, "コメント内容" %>
-      <%= form.text_area :content %>
+      <%= form.text_area :content, class: "form-control" %>
     </div>
 
     <div class="actions">
-      <%= form.submit "コメントを投稿" %>
+      <%= form.submit "コメントを投稿", class: "btn btn-info"  %>
     </div>
   <% end %>
 </div>

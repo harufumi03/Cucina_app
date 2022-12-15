@@ -1,23 +1,23 @@
-
+<div class="image_root">
+  <%= link_to root_path do %>
+    <%= image_tag 'textlogo.png', :size =>'500x190' %>
+  <% end %>
+</div>     
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-10">
         <div class="card">
           <div class="card-body">
+            <h2>ログイン</h2>
             <div class="form-group">
-              <h2>ログイン</h2>
               <%= f.label "メールアドレス"%><br />
-              <%# <div class="col-sm-10"> %>
                 <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
-              <%# </div>   %>
             </div>
 
             <div class="form-group">
               <%= f.label "パスワード" %><br/>
-              <%# <div class="col-sm-10"> %>
                 <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "form-control" %>
-              <%# </div>   %>
             </div>
 
             <% if devise_mapping.rememberable? %>
@@ -38,7 +38,9 @@
 <% end %>
   
 <div class="text-center">
+<br>
 <%= render "users/shared/links" %>
-<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %><br>
-<%= link_to '管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post %>
+<br>
+<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-primary" %><br><br>
+<%= link_to '管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post, class: "btn btn-primary" %>
 </div>

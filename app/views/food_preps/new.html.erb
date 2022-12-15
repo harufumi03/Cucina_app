@@ -17,7 +17,7 @@
             </div><br>
 
             <div class="field">
-                <%= form.label "カテゴリ" %>
+                <%= form.label "カテゴリ" %>:
               <% Label.all.each do |label| %>
                 <%= form.check_box :label_ids, { multiple: true, include_hidden: false }, label[:id] %>
                 <%= label.name %>
@@ -25,7 +25,7 @@
             </div><br>
 
             <div class="field">
-                <%= form.label "グループ名" %>
+                <%= form.label "グループ名" %>:
               <% @groups.each do |group| %>
                 <%= form.check_box :group_id, { multiple: false, include_hidden: false }, group[:group_id] %>
                 <%= group.group.name %>

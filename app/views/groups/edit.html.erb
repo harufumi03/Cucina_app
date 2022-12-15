@@ -12,11 +12,13 @@
 
               <div class="button">  
                 <%= f.submit '編集する', class: "btn btn-info" %>
-              </div>  
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>        
-  </div>    
+  </div>
+<br>      
+<%= link_to "戻る", user_path(current_user.id), id: "back", class: "btn btn-primary btn-sm" %>  
 <% end %>

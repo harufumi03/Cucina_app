@@ -1,5 +1,7 @@
 <h1><%= 'カテゴリ一覧' %></h1>
-
+<br>
+<%= link_to 'カテゴリを登録する', new_label_path, class: "btn btn-success" %>
+<br><br>
 <table class = "table">
   <thead>
     <tr>
@@ -13,8 +15,8 @@
       <tr>
         <td><%= label.name%></td>
         <td><%= label.food_preps.count %></td>
-        <td><%= link_to t('編集する'), edit_label_path(label) %></td>
-        <td><%= link_to t('削除する'), label_path(label), method: :delete, data: { confirm: '本当に削除しますか？' } %></td>
+        <td><%= link_to t('編集する'), edit_label_path(label), class: "btn btn-primary" %></td>
+        <td><%= link_to t('削除する'), label_path(label), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

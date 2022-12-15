@@ -19,25 +19,24 @@
             <%= f.email_field :email, class: "form-control", placeholder: "sample@example.com" %><br>
             <div class="button">
               <%= f.submit '招待する', class: "btn btn-info" %>
-            </div>
-          <% end %>
+            </div><br>
+          <% end %> 
+            <% if current_user == @group.owner %>
+              <%= link_to "グループを編集", edit_group_path(@group), class: "btn btn-success btn-sm" %>
+              <%= link_to "グループを削除", @group, method: :delete, data:{ confirm: "削除しますか？"}, class: "btn btn-danger btn-sm" %>
+            <% else %>
+              <% if @group.users.ids.include?(current_user.id) %>
+                <%= link_to "グループから退出", group_group_user_path(@group), method: :delete, data: { confirm: "グループから退出しますか？"}, class: "btn btn-secondary btn-sm" %>
+              <% end %>
+            <% end %>
+            <br><br>
+            <%= link_to "戻る", user_path(current_user.id), id: "back", class: "btn btn-primary btn-sm" %>
+          </div>
           </div>  
         </div>
       </div>
     </div>
   </div>        
 </div>
-<br>
-<div class = "group_button" style = "text-align: center;">  
-  <% if current_user == @group.owner %>
-    <%= link_to "グループを編集", edit_group_path(@group), class: "btn btn-success btn-sm" %>
-    <%= link_to "グループを削除", @group, method: :delete, data:{ confirm: "削除しますか？"}, class: "btn btn-danger btn-sm" %>
-  <% else %>
-    <% if @group.users.ids.include?(current_user.id) %>
-      <%= link_to "グループから退出", group_group_user_path(@group), method: :delete, data: { confirm: "グループから退出しますか？"}, class: "btn btn-secondary btn-sm" %>
-    <% end %>
-  <% end %>
-  <br><br>
-  <%= link_to "戻る", user_path(current_user.id), id: "back", class: "btn btn-primary btn-sm" %>
-</div>
+
   

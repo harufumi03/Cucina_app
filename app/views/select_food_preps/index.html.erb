@@ -12,6 +12,7 @@
   </div>        
 </div>
 <br>
+<br>
 <table class = "table">
   <thead>
     <tr>
@@ -44,10 +45,10 @@
   <%= month_calendar events: @group_select_food_preps do |date, food_preps| %>
     <%= date.day %>
 
-  <% food_preps.each do |food_prep| %>
-    <div>
-      <%= link_to food_prep.food_prep.name, food_prep %>
-    </div>
+    <% food_preps.each do |food_prep| %>
+      <div>
+        <%= link_to food_prep.food_prep.name, food_prep %>
+      </div>
+    <% end %> 
   <% end %>
-<% end %>
-</div>
+</div>  

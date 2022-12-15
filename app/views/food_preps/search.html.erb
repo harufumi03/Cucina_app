@@ -1,21 +1,35 @@
-<h1>検索結果</h1>
-<table>
-  <thead>
-    <tr>
-      <th><%= "仕込み項目名" %></th>
-      <th><%= "使用食材" %></th>
-    </tr>
-  </thead>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="card">
+        <div class="card-body">
 
-  <tbody>
-    <% @results.each do |food_prep| %>
-      <tr>
-        <td><%= food_prep.name %></td>
-        <td><%= food_prep.ingredient %></td>
-        <td><%= link_to t('詳細を見る'), food_prep_path(food_prep), method: :get %></td>
-        <td><%= link_to t('編集する'), edit_food_prep_path(food_prep), method: :get %></td> 
-        <td><%= link_to t('削除する'), food_prep_path(food_prep), method: :delete, data: { confirm: '本当に削除しますか？' }  %></td> 
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <h1>検索結果</h1>
+          <table>
+            <thead>
+              <tr>
+                <th><%= "仕込み項目名" %></th>
+                <th><%= "使用食材" %></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <% @results.each do |food_prep| %>
+                <tr>
+                  <td><%= food_prep.name %></td>
+                  <td><%= food_prep.ingredient %></td>
+                  <td><%= link_to t('詳細を見る'), food_prep_path(food_prep), method: :get, class: "btn btn-primary btn-sm" %></td>
+                  <td><%= link_to t('編集する'), edit_food_prep_path(food_prep), method: :get, class: "btn btn-success btn-sm" %></td> 
+                  <td><%= link_to t('削除する'), food_prep_path(food_prep), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm"  %></td> 
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>        
+</div>
+<br>
+<%= link_to t('戻る'), food_preps_path(@results), class: "btn btn-primary btn-sm"  %>
+

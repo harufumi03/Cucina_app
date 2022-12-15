@@ -1,27 +1,38 @@
-<h1><%= "仕込み選択ページ" %></h1>
 
 <%= form_with(model: @select_food_prep, local: true) do |form| %>
-
-  <div>
-    <%= form.label "仕込み項目名" %>
-    <%= form.select :food_prep_id, FoodPrep.where(group_id: current_user.groups.ids).pluck(:name, :id)%>
-  </div><br>
-
-  <div class="field">
-      <%= form.label "グループ名" %>
-    <% @groups.each do |group| %>
-      <%= form.check_box :group_id, { multiple: false, include_hidden: false }, group[:group_id] %>
-      <%= group.group.name %>
-    <% end %>
-  </div><br>
-
-  <div>
-    <%= form.label "実施日" %>
-    <%= form.date_field :to_do_at %>
-  </div><br>
-
-  <div class="actions">
-    <%= form.submit "追加する" %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="card">
+        <div class="card-body"> 
+        <h1><%= "仕込み選択ページ" %></h1><br><br>
+          <div class="form-group">
+            <%= form.label "仕込み項目名" %><br>
+            <%= form.select :food_prep_id, FoodPrep.where(group_id: current_user.groups.ids).pluck(:name, :id)%>
+          </div>
+          <div class="form-group">
+            <%= form.label "実施日" %>
+            <%= form.date_field :to_do_at, class: "form-control" %>
+          </div>
+          <div class="field">
+              <%= form.label "グループ名" %>
+            <% @groups.each do |group| %>
+              <%= form.check_box :group_id, { multiple: false, include_hidden: false }, group[:group_id] %>
+              <%= group.group.name %>
+            <% end %>
+          </div>
+          <br>
+          <div class="actions">
+            <%= form.submit "追加する", class: "btn btn-sm btn-info" %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
+</div>
+<br>
+<%= link_to t('戻る'), select_food_preps_path, class: "btn btn-primary btn-sm"  %>        
+
+
 
 <% end %>

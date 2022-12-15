@@ -1,14 +1,13 @@
 <%= render 'layouts/flash' %>
 <div class="comment_edit_form">
   <%= form_with(model: [select_food_prep, comment], local: false) do |form| %>
-    <div class="field">
-      <%= form.text_area "コメント内容", id: "comment_content_#{select_food_prep.id}" %>
+    <div class="form-group">
+      <%= form.text_area "コメント内容", id: "comment_content_#{select_food_prep.id}", class: "form-control" %>
     </div>
 
     <div class="actions">
-      <%= form.submit "編集" %>
+      <%= form.submit "編集", class: "btn btn-info"  %>
     </div>
-
     <%= link_to :back do %>
       戻る
     <% end %>

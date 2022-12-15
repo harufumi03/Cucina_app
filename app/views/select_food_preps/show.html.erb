@@ -1,30 +1,33 @@
-<h1><%= "仕込み詳細" %></h1>
-
-<p>
-  <strong><%= '仕込み項目名' %>:</strong>
-  <%= @select_food_prep.food_prep.name %>
-</p>
-
-<p>
-  <strong><%= '使用食材' %>:</strong>
-  <%= @select_food_prep.food_prep.ingredient %>
-</p>
-
-<p>
-  <strong><%= '実施日' %>:</strong>
-  <%= @select_food_prep.to_do_at %>
-</p>
-
-<p>
-  <strong><%= '担当者' %>:</strong>
-  <%= @select_food_prep.user.name %>
-</p>
-
-
-
-<div id="comments_area">
-  <%= render partial: 'comments/index', locals: { comments: @comments, select_food_prep: @select_food_prep } %>
-</div>
-<div id="form_area">
-  <%= render partial: 'comments/form', locals: { comment: @comment, select_food_prep: @select_food_prep } %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="card">
+        <div class="card-body">
+          <h1><%= "仕込み詳細" %></h1><br>
+          <p>
+            <strong><%= '仕込み項目名' %>:</strong>
+            <%= @select_food_prep.food_prep.name %>
+          </p>
+          <p>
+            <strong><%= '使用食材' %>:</strong>
+            <%= @select_food_prep.food_prep.ingredient %>
+          </p>
+          <p>
+            <strong><%= '実施日' %>:</strong>
+            <%= @select_food_prep.to_do_at %>
+          </p>
+          <p>
+            <strong><%= '担当者' %>:</strong>
+            <%= @select_food_prep.user.name %>
+          </p>
+          <div id="comments_area">
+            <%= render partial: 'comments/index', locals: { comments: @comments, select_food_prep: @select_food_prep } %>
+          </div>
+          <div id="form_area">
+            <%= render partial: 'comments/form', locals: { comment: @comment, select_food_prep: @select_food_prep } %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

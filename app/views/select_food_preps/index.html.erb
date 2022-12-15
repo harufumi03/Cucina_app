@@ -1,6 +1,17 @@
-<h1><%= t('本日の仕込み') %></h1>
-
-<%= Date.current.strftime('%Y年 %m月 %d日') %>
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <div class="card">
+        <div class="card-body">
+          <h1><%= t('本日の仕込み') %></h1>
+          <h3><%= Date.current.strftime('%Y年 %m月 %d日') %></h3>
+          <%= link_to "新しく仕込みを選択する", new_select_food_prep_path, class: "btn btn-primary"%>
+        </div>
+      </div>
+    </div>
+  </div>        
+</div>
+<br>
 <table class = "table">
   <thead>
     <tr>
@@ -15,15 +26,15 @@
   <tbody>
     <% @group_select_food_preps.each do |select_food_prep| %>
       <% if select_food_prep.to_do_at == Date.current %>
-      <tr>
-        <td><%= check_box_tag :executed %>
-        <td><%= select_food_prep.food_prep.name %></td>
-        <td><%= select_food_prep.food_prep.ingredient %></td>
-        <td><%= select_food_prep.to_do_at %></td>
-        <td><%= select_food_prep.user.name %></td>
-        <td><%= link_to t('詳細'), select_food_prep_path(select_food_prep), method: :get %></td>
-        <td><%= link_to t('削除'), select_food_prep_path(select_food_prep), method: :delete, data: { confirm: "本当に削除しますか？" }  %></td>
-      </tr>
+        <tr>
+          <td><%= check_box_tag :executed %>
+          <td><%= select_food_prep.food_prep.name %></td>
+          <td><%= select_food_prep.food_prep.ingredient %></td>
+          <td><%= select_food_prep.to_do_at %></td>
+          <td><%= select_food_prep.user.name %></td>
+          <td><%= link_to t('詳細'), select_food_prep_path(select_food_prep), method: :get, class: "btn btn-success btn-sm" %></td>
+          <td><%= link_to t('削除'), select_food_prep_path(select_food_prep), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger btn-sm"  %></td>
+        </tr>
       <% end %>
     <% end %>  
   </tbody>  

@@ -1,35 +1,44 @@
-<h1><%= "仕込み作成" %></h1>
 
 <%= form_with(model: @food_prep) do |form| %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="card">
+          <div class="card-body">
+            <h1><%= "仕込み作成" %></h1>
+            <div class="form-group">
+              <%= form.label "仕込み項目名" %>
+              <%= form.text_field :name, placeholder: "トマトソース", class: "form-control" %>
+            </div><br>
 
-  <div class="field">
-    <%= form.label "仕込み項目名" %>
-    <%= form.text_field :name, placeholder: "トマトソース" %>
-  </div><br>
+            <div class="field">
+              <%= form.label "使用食材" %>
+              <%= form.text_area :ingredient, placeholder: "トマト,玉ねぎ", class: "form-control" %>
+            </div><br>
 
-  <div class="field">
-    <%= form.label "使用食材" %>
-    <%= form.text_area :ingredient, placeholder: "トマト,玉ねぎ" %>
-  </div><br>
+            <div class="field">
+                <%= form.label "カテゴリ" %>
+              <% Label.all.each do |label| %>
+                <%= form.check_box :label_ids, { multiple: true, include_hidden: false }, label[:id] %>
+                <%= label.name %>
+              <% end %>
+            </div><br>
 
-  <div class="field">
-      <%= form.label "カテゴリ" %>
-    <% Label.all.each do |label| %>
-      <%= form.check_box :label_ids, { multiple: true, include_hidden: false }, label[:id] %>
-      <%= label.name %>
-    <% end %>
-  </div><br>
+            <div class="field">
+                <%= form.label "グループ名" %>
+              <% @groups.each do |group| %>
+                <%= form.check_box :group_id, { multiple: false, include_hidden: false }, group[:group_id] %>
+                <%= group.group.name %>
+              <% end %>
+            </div>
 
-  <div class="field">
-      <%= form.label "グループ名" %>
-    <% @groups.each do |group| %>
-      <%= form.check_box :group_id, { multiple: false, include_hidden: false }, group[:group_id] %>
-      <%= group.group.name %>
-    <% end %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit "作成する" %>
-  </div>
+            <div class="button">
+              <%= form.submit "作成する", class: "btn btn-info"  %>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>        
+</div>  
 
 <% end %>

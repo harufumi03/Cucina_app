@@ -20,10 +20,6 @@ h1,h2 {
   font-weight: bold;
 }
 
-/* .background {
-  
-} */
-
 
 .global_navigation {
   text-align: center;
@@ -33,54 +29,13 @@ h1,h2 {
   text-align: center;
 }
 
-/* .navbar {
-  height: 80px;
-  width: 100%;
-  position: fixed;
-  z-index: 10;
-  top: 0;
-  right: 0;
-  box-sizing: border-box;
-} */
+
 .main {
   text-align: center;
   min-height: 800px;
 }
 
-/* .footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  /* Set the fixed height of the footer here */
-  /* height: 60px;
-  background-color: #C2EEFF;
-}
-body > .container {
-  padding: 60px 15px 0;
-}
-.container .text-muted {
-  margin: 20px 0;
-}
-  
-.footer > .container {
-  padding-right: 15px;
-  padding-left: 15px;
-} */ 
 
-/* .navbar-brand {
-  color: #0000FF;
-} */
-
-/* footer {
-  /* position: fixed; */
-  /* width: 100%;
-  left: 0;
-  bottom: 0;
-  height: 5%;
-  background-color: #C2EEFF;
-  color: black;
-  text-align: center;
-  } */ 
 .container {
   /* width: auto; */
   /* max-width: 680px; */
@@ -94,3 +49,9 @@ body > .container {
   font-size: larger;
 }
 
+.top-body {
+  background-image: url("lemon.jpg");
+  background-size: contain;
+  background-color:rgba(255,255,255,0.8); 
+  background-blend-mode: lighten;
+}

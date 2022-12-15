@@ -1,46 +1,45 @@
-<div class="image_root">
-  <%= link_to root_path do %>
-    <%= image_tag 'textlogo.png', :size =>'500x190' %>
-  <% end %>
-</div>     
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-10">
-        <div class="card">
-          <div class="card-body">
-            <h2>ログイン</h2>
-            <div class="form-group">
-              <%= f.label "メールアドレス"%><br />
-                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
-            </div>
-
-            <div class="form-group">
-              <%= f.label "パスワード" %><br/>
-                <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "form-control" %>
-            </div>
-
-            <% if devise_mapping.rememberable? %>
-              <div class="form-check">
-                <%= f.check_box :remember_me %>
-                <%= f.label "ログインを記憶する" %>
+<div class="top-body">
+  <div class="image_root">
+    <%= link_to root_path do %>
+      <%= image_tag 'textlogo.png', :size =>'500x190' %>
+    <% end %>
+  </div>     
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="card">
+            <div class="card-body">
+              <h2>ログイン</h2>
+              <div class="form-group">
+                <%= f.label "メールアドレス"%><br />
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
               </div>
-            <% end %>
-
-            <div class="button">
-              <%= f.submit "ログイン", class: "btn btn-info"%>
-            </div>
+              <div class="form-group">
+                <%= f.label "パスワード" %><br/>
+                  <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "form-control" %>
+              </div>
+              <% if devise_mapping.rememberable? %>
+                <div class="form-check">
+                  <%= f.check_box :remember_me %>
+                  <%= f.label "ログインを記憶する" %>
+                </div>
+              <% end %>
+              <div class="button">
+                <%= f.submit "ログイン", class: "btn btn-info"%>
+              </div>
+            </div>  
           </div>  
         </div>  
-      </div>  
-    </div>
-  </div>  
-<% end %>
-  
-<div class="text-center">
-<br>
-<%= render "users/shared/links" %>
-<br>
-<%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-primary" %><br><br>
-<%= link_to '管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post, class: "btn btn-primary" %>
+      </div>
+    </div>  
+  <% end %>
+    
+  <div class="text-center">
+  <br>
+  <%= render "users/shared/links" %>
+  <br>
+  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-primary" %><br><br>
+  <%= link_to '管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post, class: "btn btn-primary" %>
+  </div>
 </div>

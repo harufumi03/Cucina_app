@@ -13,17 +13,17 @@
 
             <h2>新規ユーザ登録</h2>
             <div class="form-group">
-              <%= f.label "名前" %><br />
+              <%= f.label :name %><br />
               <%= f.text_field :name, placeholder: "クッチーナ太郎", class: "form-control"%>
             </div>
 
             <div class="form-group">
-              <%= f.label "メールアドレス" %><br />
+              <%= f.label :email %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
             </div>
 
             <div class="form-group">
-              <%= f.label "パスワード" %>
+              <%= f.label :password %>
               <% if @minimum_password_length %>
               <em>(<%= @minimum_password_length %> 文字以上)</em>
               <% end %><br />
@@ -31,7 +31,7 @@
             </div>
 
             <div class="form-group">
-              <%= f.label "パスワード（確認）" %><br />
+              <%= f.label :password_confirmation %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "password", class: "form-control"%>
             </div>
 

@@ -6,6 +6,16 @@
         <div class="card">
           <div class="card-body">
             <h1><%= "仕込み作成" %></h1>
+            <% if @food_prep.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@food_prep.errors.count, "件の") %> エラーがあります</h2>
+                <ul>
+                  <% @food_prep.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
             <div class="form-group">
               <%= form.label "仕込み項目名" %>
               <%= form.text_field :name, placeholder: "トマトソース", class: "form-control" %>
@@ -17,7 +27,7 @@
             </div><br>
 
             <div class="field">
-                <%= form.label "カテゴリ" %>:
+              <%= form.label "カテゴリ" %>:
               <% Label.all.each do |label| %>
                 <%= form.check_box :label_ids, { multiple: true, include_hidden: false }, label[:id] %>
                 <%= label.name %>
@@ -25,7 +35,7 @@
             </div><br>
 
             <div class="field">
-                <%= form.label "グループ名" %>:
+              <%= form.label "グループ名" %>:
               <% @groups.each do |group| %>
                 <%= form.check_box :group_id, { multiple: false, include_hidden: false }, group[:group_id] %>
                 <%= group.group.name %>

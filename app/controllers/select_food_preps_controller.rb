@@ -16,6 +16,7 @@ class SelectFoodPrepsController < ApplicationController
     if @select_food_prep.save
       redirect_to select_food_preps_path, notice: '仕込みを選択しました'
     else
+      @groups = GroupUser.where(user_id: current_user.id)
       render :new
     end
   end

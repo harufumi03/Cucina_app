@@ -4,7 +4,7 @@ FactoryBot.define do
     email { "user1@sample.com" }
     password { "111111" }
     # password_digest { "111111" }
-    admin { true }
+    admin { false }
   end
 
   factory :second_user, class: User do

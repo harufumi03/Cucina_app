@@ -17,7 +17,8 @@ class FoodPrepsController < ApplicationController
     if @food_prep.save
       redirect_to food_preps_path, notice: '仕込みを登録しました'
     else
-      render :new
+      @groups = GroupUser.where(user_id: current_user.id)
+      render :new, notice: '仕込みの作成に失敗しました'
     end
   end
 

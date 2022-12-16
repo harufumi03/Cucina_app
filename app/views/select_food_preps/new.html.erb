@@ -6,9 +6,19 @@
       <div class="card">
         <div class="card-body"> 
         <h1><%= "仕込み選択ページ" %></h1><br><br>
+          <% if @select_food_prep.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(@select_food_prep.errors.count, "件の") %> エラーがあります</h2>
+              <ul>
+                <% @select_food_prep.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
           <div class="form-group">
             <%= form.label "仕込み項目名" %><br>
-            <%= form.select :food_prep_id, FoodPrep.where(group_id: current_user.groups.ids).pluck(:name, :id)%>
+            <%= form.select :food_prep_id, FoodPrep.where(group_id: current_user.groups.ids).pluck(:name, :id), { include_blank: '選択してください'}%>
           </div>
           <div class="form-group">
             <%= form.label "実施日" %>

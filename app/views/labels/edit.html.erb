@@ -1,15 +1,25 @@
 <h1><%= 'カテゴリ編集' %></h1>
 
 <%= form_with(model: @label, local: true) do |form| %>
+  <% if @label.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@label.errors.count, "件の") %> エラーがあります</h2>
+      <ul>
+        <% @label.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
   
-<div class="field">
-  <%= form.label 'カテゴリ名' %>
-  <%= form.text_field :name, class: "form-control" %>
-</div>
+  <div class="field">
+    <%= form.label 'カテゴリ名' %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
 
-<div class="actions">
-  <%= form.submit '編集する', class: "btn btn-sm btn-info" %>
-</div>
+  <div class="actions">
+    <%= form.submit '編集する', class: "btn btn-sm btn-info" %>
+  </div>
 <% end %>
 
 <%= link_to t('戻る'), labels_path, id: "back" %>

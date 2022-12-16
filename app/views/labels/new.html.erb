@@ -1,24 +1,35 @@
 
 <%= form_with(model: @label, local: true) do |form| %>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <div class="card">
-        <div class="card-body"> 
-          <h1><%= 'カテゴリ作成' %></h1>
-          <div class="form-group">
-            <%= form.label "カテゴリ名" %>
-            <%= form.text_field :name, class: "form-control", placeholder: "肉類" %>
-          </div>
-          <br>
-          <div class="actions">
-            <%= form.submit "作成する", class: "btn btn-sm btn-info" %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <div class="card">
+          <div class="card-body"> 
+            <h1><%= 'カテゴリ作成' %></h1>
+            <% if @label.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@label.errors.count, "件の") %> エラーがあります</h2>
+                <ul>
+                  <% @label.errors.full_messages.each do |message| %>
+                    <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <%= form.label "カテゴリ名" %>
+              <%= form.text_field :name, class: "form-control", placeholder: "肉類" %>
+            </div>
+            <br>
+            <div class="actions">
+              <%= form.submit "作成する", class: "btn btn-sm btn-info" %>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>        
-</div>
-<% end %>
-<br>
+    </div>        
+  </div>
+  <% end %>
+  <br>
 <%= link_to "戻る", labels_path, id: "back", class: "btn btn-sm btn-success" %>

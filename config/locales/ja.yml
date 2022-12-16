@@ -56,3 +56,32 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+
+  activerecord:
+    models:
+      food_prep:
+      select_food_prep:
+    attributes:
+      food_prep:
+        name: "仕込み項目名"
+        ingredient: "使用食材"
+        group: "グループ"
+        group_id: "グループ"
+      select_food_prep:
+        group_id: "グループ"
+        to_do_at: "実施日"
+        group: "グループ名"
+      label:
+        name: "カテゴリ名"
+      group:
+        name: "グループ名"          
+    errors:
+      models:
+        food_prep:
+          attributes:
+            group:
+              required: "の選択が必要です。"
+        select_food_prep:
+          attributes:
+            group:
+              required: "の選択が必要です。"      

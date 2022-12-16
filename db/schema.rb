@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_11_141528) do
+ActiveRecord::Schema.define(version: 2022_12_16_020130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,11 +35,11 @@ ActiveRecord::Schema.define(version: 2022_12_11_141528) do
   end
 
   create_table "food_preps", force: :cascade do |t|
-    t.string "name"
-    t.string "ingredient"
+    t.string "name", null: false
+    t.string "ingredient", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "group_id"
+    t.bigint "group_id", null: false
     t.index ["group_id"], name: "index_food_preps_on_group_id"
   end
 
@@ -53,14 +53,14 @@ ActiveRecord::Schema.define(version: 2022_12_11_141528) do
   end
 
   create_table "groups", force: :cascade do |t|
-    t.string "name"
-    t.integer "owner_id"
+    t.string "name", null: false
+    t.integer "owner_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "labels", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2022_12_11_141528) do
     t.date "to_do_at", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "group_id"
+    t.bigint "group_id", null: false
     t.index ["food_prep_id"], name: "index_select_food_preps_on_food_prep_id"
     t.index ["group_id"], name: "index_select_food_preps_on_group_id"
     t.index ["user_id"], name: "index_select_food_preps_on_user_id"
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2022_12_11_141528) do
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "name"
+    t.string "name", null: false
     t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

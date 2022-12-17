@@ -30,7 +30,7 @@ https://docs.google.com/spreadsheets/d/1PJko9evXqyEJ3GkVqZuZ9pGIOG2l0zS7dEbEDm0S
 https://miro.com/app/board/uXjVPBTCUF8=/?share_link_id=677190895021
 
 # ER図
-![スクリーンショット 2022-12-04 19 50 59](https://user-images.githubusercontent.com/112235965/205486514-b2e2f922-2d09-40dd-8143-da97c9031131.png)
+![スクリーンショット 2022-12-17 15 59 34](https://user-images.githubusercontent.com/112235965/208229918-b3c2f017-c024-4955-80fd-31b32b5eeb96.png)
 
 # 画面遷移図
 ![スクリーンショット 2022-11-25 16 52 59](https://user-images.githubusercontent.com/112235965/203929418-1436cfe2-f970-40b8-bbec-6650a9b6432a.png)

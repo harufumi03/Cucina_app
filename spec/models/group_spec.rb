@@ -18,8 +18,8 @@ RSpec.describe "グループモデル機能", type: :model do
 
     context 'グループ名が20文字以内で入力された場合' do
       it 'バリデーションに成功する' do
-        group = FactoryBot.create(:group, name: 'グループ名')
-        expect(group).to be_valid
+        group = FactoryBot.build(:group, name: "グループ名")
+        expect(group).to be_invalid
       end
     end
   end  

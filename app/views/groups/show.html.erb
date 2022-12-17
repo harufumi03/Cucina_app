@@ -22,7 +22,7 @@
             </div><br>
           <% end %> 
             <% if current_user == @group.owner %>
-              <%= link_to "グループを編集", edit_group_path(@group), class: "btn btn-success btn-sm" %>
+              <%= link_to "グループを編集", edit_group_path(@group), class: "btn btn-success btn-sm", id: "edit_group" %>
               <%= link_to "グループを削除", @group, method: :delete, data:{ confirm: "削除しますか？"}, class: "btn btn-danger btn-sm" %>
             <% else %>
               <% if @group.users.ids.include?(current_user.id) %>

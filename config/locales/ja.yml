@@ -105,23 +105,46 @@ ja:
 
   activerecord:
     models:
-      food_prep:
-      select_food_prep:
+      food_prep: '仕込み項目'
+      select_food_prep: '選択した仕込み'
+      label: 'カテゴリー'
+      group: 'グループ'
+      group_user: 'グループとユーザの中間モデル'
+      food_prep_label: '仕込み項目とカテゴリーの中間モデル'
+      comment: 'コメント'
     attributes:
       food_prep:
         name: "仕込み項目名"
         ingredient: "使用食材"
         group: "グループ"
         group_id: "グループ"
+        created_at: '作成日時'
+        updated_at: '更新日時'
       select_food_prep:
         group_id: "グループ"
         to_do_at: "実施日"
         group: "グループ名"
         food_prep: "仕込み項目名"
+        created_at: '作成日時'
+        updated_at: '更新日時'
       label:
         name: "カテゴリ名"
+        created_at: '作成日時'
+        updated_at: '更新日時'
       group:
-        name: "グループ名"          
+        name: "グループ名"
+        created_at: '作成日時'
+        updated_at: '更新日時'
+      comment:
+        content: 'コメント内容'
+        created_at: '作成日時'
+        updated_at: '更新日時'
+      group_user:
+        created_at: '作成日時'
+        updated_at: '更新日時'
+      food_prep_label:
+        created_at: '作成日時'
+        updated_at: '更新日時'                
     errors:
       models:
         food_prep:
@@ -198,15 +221,18 @@ ja:
       created_at: "日時"
       item: "アイテム"
       message: "メッセージ"
+      comment: コメント
     actions:
       dashboard:
         title: "サイト管理"
         menu: "ダッシュボード"
         breadcrumb: "ダッシュボード"
+        comment: コメント
       index:
         title: "%{model_label_plural}の一覧"
         menu: "一覧"
         breadcrumb: "%{model_label_plural}"
+        no_records: '値はありません'
       show:
         title: "%{model_label} '%{object_label}'の詳細"
         menu: "詳細"

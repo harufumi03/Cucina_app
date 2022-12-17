@@ -60,8 +60,5 @@ RSpec.describe "Groups", type: :system do
         expect(page).to have_content 'グループから退出しました'
       end
     end
-    
-
-
   end  
 end

@@ -1,6 +1,6 @@
 class CommentsController < ApplicationController
   before_action :set_select_food_prep
-
+  
   def create
     @comment = @select_food_prep.comments.build(comment_params)
     @comment.user_id = current_user.id

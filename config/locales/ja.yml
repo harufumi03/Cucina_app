@@ -117,6 +117,7 @@ ja:
         group_id: "グループ"
         to_do_at: "実施日"
         group: "グループ名"
+        food_prep: "仕込み項目名"
       label:
         name: "カテゴリ名"
       group:
@@ -131,6 +132,8 @@ ja:
           attributes:
             group:
               required: "の選択が必要です。" 
+            food_prep: 
+              required: "の選択が必要です。"  
   admin:
     js:
       true: True

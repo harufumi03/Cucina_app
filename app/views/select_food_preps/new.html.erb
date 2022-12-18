@@ -2,27 +2,27 @@
 <%= form_with(model: @select_food_prep, local: true) do |form| %>
 <div class="container">
   <div class="row justify-content-center">
-    <div class="col-10">
+    <div class="col-8">
       <div class="card">
         <div class="card-body"> 
-        <h1><%= "仕込み選択ページ" %></h1><br><br>
+        <h1><%= "仕込み選択" %></h1>
+        <p>仕込みの予定を追加します</p><br>
           <% if @select_food_prep.errors.any? %>
             <div id="error_explanation">
-              <h2><%= pluralize(@select_food_prep.errors.count, "件の") %> エラーがあります</h2>
-              <ul>
+              <h3><%= pluralize(@select_food_prep.errors.count, "件の") %> エラーがあります</h3>
                 <% @select_food_prep.errors.full_messages.each do |message| %>
-                  <li><%= message %></li>
+                  <%= message %><br>
                 <% end %>
-              </ul>
             </div>
           <% end %>
+          <br>
           <div class="form-group">
             <%= form.label "仕込み項目名" %><br>
             <%= form.select :food_prep_id, FoodPrep.where(group_id: current_user.groups.ids).pluck(:name, :id), { include_blank: '選択してください'}%>
           </div>
           <div class="form-group">
-            <%= form.label "実施日" %>
-            <%= form.date_field :to_do_at, class: "form-control" %>
+            <%= form.label "実施日" %><br>
+            <%= form.date_field :to_do_at %>
           </div>
           <div class="field">
               <%= form.label "グループ名" %>

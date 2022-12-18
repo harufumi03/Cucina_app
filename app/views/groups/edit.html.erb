@@ -1,19 +1,16 @@
-<h1>グループ編集</h1>
-
 <%= form_with(model: @group, local: true) do |f| %>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-10">
         <div class="card">
           <div class="card-body">
+            <h1>グループ編集</h1>
             <% if @group.errors.any? %>
               <div id="error_explanation">
-                <h2><%= pluralize(@group.errors.count, "件の") %> エラーがあります</h2>
-                <ul>
+                <h3><%= pluralize(@group.errors.count, "件の") %> エラーがあります</h3>
                   <% @group.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
+                    <%= message %><br>
                   <% end %>
-                </ul>
               </div>
             <% end %>
             <div class="form-group">

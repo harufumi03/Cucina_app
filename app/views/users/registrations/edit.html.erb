@@ -1,6 +1,5 @@
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-10">
@@ -8,6 +7,7 @@
           <div class="card-body">
             <h2>アカウント編集</h2>
             <div class="field">
+              <%= render "users/shared/error_messages", resource: resource %>
               <%= f.label :name %><br />
               <%= f.text_field :name, class: "form-control" %>
             </div>

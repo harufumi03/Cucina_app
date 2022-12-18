@@ -16,49 +16,49 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <%# bootstrap %>
   </head>
-
+  
   <body class="background">
     <%# ヘッダー %>
     <div class="global_navigation">  
-        <% if user_signed_in? %>
-          <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#C2EEFF;">
-            <a class="navbar-brand" href="/" style="color:#0000FF;">Cucina</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id='menu_button'>
-              <span class="navbar-toggler-icon" id="open_menu"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav">
-                <li class="nav-item active">
-                  <%= link_to "登録済仕込み一覧", food_preps_path, class:"nav-link"%><span class="sr-only">(current)</span>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "本日の仕込み", select_food_preps_path, class:"nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "仕込みを選択する", new_select_food_prep_path, class:"nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'カテゴリ一覧', labels_path, class:"nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to 'アカウント詳細', user_path(current_user.id), class:"nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link", id: "log_out" %>
-                </li>
-              </ul>
-            </div>
-          </nav>
-        <% else %>
-          <nav class="navbar navbar-light" style="background-color:#C2EEFF;">
-            <a class="navbar-brand" href="/" style="color:#0000FF;">Cucina</a>
-            <form class="form-inline">
-              <%= link_to "新規登録", new_user_registration_path %> /
-              <%= link_to "ログイン", new_user_session_path %>
-            </form>
-          </nav>
-        <% end %>
-      </div> 
+      <% if user_signed_in? %>
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color:#C2EEFF;">
+          <a class="navbar-brand" href="/" style="color:#0000FF;">Cucina</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id='menu_button'>
+            <span class="navbar-toggler-icon" id="open_menu"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item active">
+                <%= link_to "登録済仕込み一覧", food_preps_path, class:"nav-link"%><span class="sr-only">(current)</span>
+              </li>
+              <li class="nav-item">
+                <%= link_to "本日の仕込み", select_food_preps_path, class:"nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "仕込みを選択する", new_select_food_prep_path, class:"nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'カテゴリ一覧', labels_path, class:"nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'アカウント詳細', user_path(current_user.id), class:"nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class:"nav-link", id: "log_out" %>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      <% else %>
+        <nav class="navbar navbar-light" style="background-color:#C2EEFF;">
+          <a class="navbar-brand" href="/" style="color:#0000FF;">Cucina</a>
+          <form class="form-inline">
+            <%= link_to "新規登録", new_user_registration_path %> /
+            <%= link_to "ログイン", new_user_session_path %>
+          </form>
+        </nav>
+      <% end %>
+    </div> 
     <%# ヘッダー %>  
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

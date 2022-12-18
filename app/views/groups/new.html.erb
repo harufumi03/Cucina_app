@@ -5,17 +5,15 @@
       <div class="col-10">
         <div class="card">
           <div class="card-body">
+            <h1>グループ作成</h1>
             <% if @group.errors.any? %>
               <div id="error_explanation">
-                <h2><%= pluralize(@group.errors.count, "件の") %> エラーがあります</h2>
-                <ul>
+                <h3><%= pluralize(@group.errors.count, "件の") %> エラーがあります</h3>
                   <% @group.errors.full_messages.each do |message| %>
-                    <li><%= message %></li>
+                    <%= message %><br>
                   <% end %>
-                </ul>
               </div>
             <% end %>
-            <h1>グループ作成</h1>
             <div class="form-group">
               <p><%= f.label 'グループ名' %></p>
               <p><%= f.text_field :name, placeholder: "レストラン:cucina", class: "form-control" %></p>

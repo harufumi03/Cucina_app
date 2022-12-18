@@ -1,49 +1,51 @@
-<h1><%= "登録済仕込み一覧" %></h1>
-<%= link_to "新しく仕込みを登録する", new_food_prep_path, class: "btn btn-primary"%>
-<br><br>
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-10">
-        <div class="card">
-          <div class="card-body">
-          <h3>仕込み検索</h3>
-          <%= search_form_for @search_food_prep, url: search_food_preps_path do |f| %>
-            <%= f.label :name_cont, '仕込み項目名' %>
-            <div class="form-group">
-              <%= f.search_field :name_cont, class: "form-control", placeholder: "例)トマトソース" %>
-              <br>
-              <%= f.submit '検索', class: "btn btn-info btn-sm" %>
-            </div>  
-          <% end %>
+<div class="container">
+  <h1><%= "登録済仕込み一覧" %></h1>
+  <%= link_to "新しく仕込みを登録する", new_food_prep_path, class: "btn btn-primary"%>
+  <br><br>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <div class="card">
+            <div class="card-body">
+            <h3>仕込み検索</h3>
+            <%= search_form_for @search_food_prep, url: search_food_preps_path do |f| %>
+              <%= f.label :name_cont, '仕込み項目名' %>
+              <div class="form-group">
+                <%= f.search_field :name_cont, class: "form-control", placeholder: "例)トマトソース" %>
+                <br>
+                <%= f.submit '検索', class: "btn btn-info btn-sm" %>
+              </div>  
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
-  </div>        
-</div>
-<br>
-<table class = "table">
-  <thead>
-    <tr>
-      <th><%= "仕込み項目名" %></th>
-      <th><%= "使用食材" %></th>
-      <th><%= "カテゴリ" %></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @group_food_preps.each do |food_prep| %>
+    </div>        
+  </div>
+  <br>
+  <table class = "table">
+    <thead>
       <tr>
-        <td><%= food_prep.name %></td>
-        <td><%= food_prep.ingredient %></td>
-        <td>
-          <% food_prep.labels.each do |label| %>
-            <%= label.name %>
-          <% end %>
-        </td>
-        <td><%= link_to t('詳細を見る'), food_prep_path(food_prep), method: :get, class: "btn btn-primary btn-sm" %></td>
-        <td><%= link_to t('編集する'), edit_food_prep_path(food_prep), method: :get, class: "btn btn-success btn-sm" %></td> 
-        <td><%= link_to t('削除する'), food_prep_path(food_prep), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm" %></td> 
+        <th><%= "仕込み項目名" %></th>
+        <th><%= "使用食材" %></th>
+        <th><%= "カテゴリ" %></th>
       </tr>
-    <% end %> 
-  </tbody>  
-</table>
+    </thead>
+
+    <tbody>
+      <% @group_food_preps.each do |food_prep| %>
+        <tr>
+          <td><%= food_prep.name %></td>
+          <td><%= food_prep.ingredient %></td>
+          <td>
+            <% food_prep.labels.each do |label| %>
+              <%= label.name %>
+            <% end %>
+          </td>
+          <td><%= link_to t('詳細を見る'), food_prep_path(food_prep), method: :get, class: "btn btn-primary btn-sm" %></td>
+          <td><%= link_to t('編集する'), edit_food_prep_path(food_prep), method: :get, class: "btn btn-success btn-sm" %></td> 
+          <td><%= link_to t('削除する'), food_prep_path(food_prep), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm" %></td> 
+        </tr>
+      <% end %> 
+    </tbody>  
+  </table>
+</div>

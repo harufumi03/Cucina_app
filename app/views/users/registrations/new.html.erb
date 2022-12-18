@@ -9,9 +9,9 @@
       <div class="col-10">
         <div class="card">
           <div class="card-body">
-            <%= render "users/shared/error_messages", resource: resource %>
 
             <h2>新規ユーザ登録</h2>
+            <%= render "users/shared/error_messages", resource: resource %>
             <div class="form-group">
               <%= f.label :name %><br />
               <%= f.text_field :name, placeholder: "クッチーナ太郎", class: "form-control"%>

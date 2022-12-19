@@ -41,9 +41,9 @@
               <%= label.name %>
             <% end %>
           </td>
-          <td><%= link_to t('詳細を見る'), food_prep_path(food_prep), method: :get, class: "btn btn-primary btn-sm" %></td>
-          <td><%= link_to t('編集する'), edit_food_prep_path(food_prep), method: :get, class: "btn btn-success btn-sm" %></td> 
-          <td><%= link_to t('削除する'), food_prep_path(food_prep), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm" %></td> 
+          <td><%= link_to t(' 詳細を見る'), food_prep_path(food_prep), method: :get, class: "bi bi-file-text-fill btn btn-outline-primary btn-sm" %></td>
+          <td><%= link_to t(' 編集する'), edit_food_prep_path(food_prep), method: :get, class: "btn btn-outline-success btn-sm bi bi-pencil-fill" %></td> 
+          <td><%= link_to t(' 削除する'), food_prep_path(food_prep), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-outline-danger btn-sm bi bi-trash3-fill" %></td> 
         </tr>
       <% end %> 
     </tbody>  

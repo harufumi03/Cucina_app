@@ -1,12 +1,12 @@
 <div class="container">
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-10">
+      <div class="col-8">
         <div class="card">
           <div class="card-body">
             <h1><%= '本日の仕込み' %></h1>
             <h3><%= Date.current.strftime('%Y年 %m月 %d日') %></h3>
-            <%= link_to "新しく仕込みを選択する", new_select_food_prep_path, class: "btn btn-primary"%>
+            <%= link_to " 新しく仕込みを選択する", new_select_food_prep_path, class: "bi bi-plus-circle-fill btn btn-primary"%>
           </div>
         </div>
       </div>
@@ -34,8 +34,8 @@
             <td><%= select_food_prep.food_prep.ingredient %></td>
             <td><%= select_food_prep.to_do_at %></td>
             <td><%= select_food_prep.user.name %></td>
-            <td><%= link_to t('詳細'), select_food_prep_path(select_food_prep), method: :get, class: "btn btn-success btn-sm" %></td>
-            <td><%= link_to t('削除'), select_food_prep_path(select_food_prep), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "btn btn-danger btn-sm"  %></td>
+            <td><%= link_to t('詳細'), select_food_prep_path(select_food_prep), method: :get, class: "bi bi-file-text-fill btn btn-outline-success btn-sm" %></td>
+            <td><%= link_to t('削除'), select_food_prep_path(select_food_prep), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "bi bi-trash3-fill btn btn-outline-danger btn-sm"  %></td>
           </tr>
         <% end %>
       <% end %>  

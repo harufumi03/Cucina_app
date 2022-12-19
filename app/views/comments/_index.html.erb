@@ -1,10 +1,11 @@
 <%= render 'layouts/flash' %>
 <% comments.order(created_at: :asc).each do |comment| %>
   <div id ="this_comment_<%= comment.id %>">
-    <span>コメント内容<%= simple_format(comment.content) %></span>
+    <strong class="border-bottom border-dark">コメント内容</strong>
+    <span><%= simple_format(comment.content) %></span>
     <small>投稿者:<%= comment.user.name %></small><br>
     <small>日時:<%= comment.created_at.strftime("%Y-%m-%d %H:%M") %></small><br>
-    <span><%= link_to '編集', edit_select_food_prep_comment_path(select_food_prep, comment), remote: true, class: "btn btn-success btn-sm" %></span>
-    <span><%= link_to '削除', select_food_prep_comment_path(comment.select_food_prep_id, comment.id), data: { confirm: "本当に削除しますか?"}, method: :delete, remote: true, class: "btn btn-danger btn-sm" %></span>
+    <span><%= link_to '', edit_select_food_prep_comment_path(select_food_prep, comment), remote: true, class: "btn-sm bi bi-pencil-fill btn btn-success btn-sm" %></span>
+    <span><%= link_to '', select_food_prep_comment_path(comment.select_food_prep_id, comment.id), data: { confirm: "本当に削除しますか?"}, method: :delete, remote: true, class: "btn btn-danger btn-sm bi bi-trash3-fill" %></span>
   </div>
 <% end %>

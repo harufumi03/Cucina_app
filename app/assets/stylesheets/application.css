@@ -83,4 +83,6 @@ h1,h2 {
 /* label {
   display: block; } */
 
-  
+.past a {
+  color: gray;
+}

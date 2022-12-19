@@ -13,21 +13,21 @@
                 <p>グループ名 : <%= group.name %></p>
               <%end%>  
             <%end%>  
+            <% if current_user.admin? %>
+              <%= link_to '管理者ページ', rails_admin_path, class: "bi bi-file-lock2 btn btn-secondary" %><br><br>
+            <% end %>
+            <% @groups.each do |group| %>
+              <% if group.users.ids.include?(current_user.id) %>
+                <%= link_to " 所属グループ詳細#{group.name}", group_path(@user.groups.ids), class: "bi bi-people-fill btn btn-info btn-sm" %>
+              <%end%>
+            <% end %>
+            <br><br>
+            <%= link_to " アカウント編集", edit_user_registration_path(@user.id), class: "bi bi-pencil-fill  btn btn-success" %>
           </div>
         </div>
       </div>
     </div>        
   </div>  
 <br>
-<% if current_user.admin? %>
-  <%= link_to '管理者ページ', rails_admin_path, class: "bi bi-file-lock2 btn btn-secondary" %><br><br>
-<% end %>
-<% @groups.each do |group| %>
-  <% if group.users.ids.include?(current_user.id) %>
-    <%= link_to " 所属グループ詳細", group_path(@user.groups.ids), class: "bi bi-people-fill btn btn-info" %>
-  <%end%>
-<% end %>
-<br><br>
-<%= link_to " アカウント編集", edit_user_registration_path(@user.id), class: "bi bi-pencil-fill  btn btn-success" %>
-<br><br>
+<br>
 <%= link_to "  戻る", food_preps_path, id: "back", class: "bi bi-skip-backward-fill btn btn-primary" %>

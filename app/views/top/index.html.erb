@@ -23,7 +23,7 @@
     <%= link_to 'アカウント詳細', user_path(current_user.id), class: "bi bi-person-circle btn btn-info" %>
   <% else %>
     <%= link_to " ログイン", new_user_session_path, class: "btn btn-info bi bi-door-open-fill" %><br><br>
-    <%= link_to " 新規登録", new_user_registration_path, class: "bi bi-plus-circle-fill btn btn-info" %><br><br>
+    <%= link_to " 新規登録", new_user_registration_path, class: "bi bi-person-plus-fill btn btn-info" %><br><br>
     <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-primary" %><br><br>
     <%= link_to '管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post, class: "btn btn-primary" %><br>
   <% end %>

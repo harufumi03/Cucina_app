@@ -2,27 +2,31 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <div class="card">
-        <div class="card-body">
-          <h1><%= '仕込み詳細ページ' %></h1>
+        <div class="card-body border border-dark">
+          <h2 class="bi bi-info-circle"><%= '仕込み詳細ページ' %></h2>
           <br>
-          <p>
-            <strong><%= '仕込み項目名' %>:</strong>
-            <%= @food_prep.name %>
-          </p>
+            <div class="card">
+              <div class="card-body">
+                <p class="border-bottom">
+                  <strong><%= '仕込み項目名' %>:</strong>
+                  <%= @food_prep.name %>
+                </p>
 
-          <p>
-            <strong><%= '使用食材' %>:</strong>
-            <%= @food_prep.ingredient %>
-          </p>
+                <p class="border-bottom">
+                  <strong><%= '使用食材' %>:</strong>
+                  <%= @food_prep.ingredient %>
+                </p>
 
-          <p>
-            <strong><%= "カテゴリ" %>:</strong>
-            <% @food_prep.labels.each do |label| %>
-              <%= label.name %>
-            <% end %>
-          </p>
-          <%= link_to t('編集する'), edit_food_prep_path(@food_prep), class: "btn btn-success btn-sm" %>
-          <%= link_to t('削除する'), food_prep_path(@food_prep), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm" %>
+                <p class="border-bottom">
+                  <strong><%= "カテゴリ" %>:</strong>
+                  <% @food_prep.labels.each do |label| %>
+                    <%= label.name %>
+                  <% end %>
+                </p>
+                <%= link_to t('編集する'), edit_food_prep_path(@food_prep), class: "btn btn-success btn-sm  bi bi-pencil-fill" %>
+                <%= link_to t('削除する'), food_prep_path(@food_prep), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-danger btn-sm bi bi-trash3-fill" %>
+            </div>  
+          </div>  
         </div>
       </div>
     </div>

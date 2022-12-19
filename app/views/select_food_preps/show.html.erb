@@ -2,24 +2,28 @@
   <div class="row justify-content-center">
     <div class="col-8">
       <div class="card">
-        <div class="card-body">
-          <h1><%= "仕込み詳細" %></h1><br>
-          <p>
-            <strong><%= '仕込み項目名' %>:</strong>
-            <%= @select_food_prep.food_prep.name %>
-          </p>
-          <p>
-            <strong><%= '使用食材' %>:</strong>
-            <%= @select_food_prep.food_prep.ingredient %>
-          </p>
-          <p>
-            <strong><%= '実施日' %>:</strong>
-            <%= @select_food_prep.to_do_at %>
-          </p>
-          <p>
-            <strong><%= '担当者' %>:</strong>
-            <%= @select_food_prep.user.name %>
-          </p>
+        <div class="card-body border border-dark">
+          <h2 class="bi bi-info-circle"><%= "仕込み予定詳細" %></h2><br>
+            <div class="card">
+              <div class="card-body">
+                <p class="text-center border-bottom">
+                  <strong><%= '仕込み項目名' %>:</strong>
+                  <%= @select_food_prep.food_prep.name %>
+                </p>
+                <p class="text-center border-bottom">
+                  <strong>使用食材:</strong>
+                  <%= @select_food_prep.food_prep.ingredient %>
+                </p>
+                <p class="text-center border-bottom">
+                  <strong><%= '実施日' %>:</strong>
+                  <%= @select_food_prep.to_do_at %>
+                </p>
+                <p class="text-center border-bottom">
+                  <strong><%= '担当者' %>:</strong>
+                  <%= @select_food_prep.user.name %>
+                </p>
+              </div>  
+            </div>
           <div id="comments_area">
             <%= render partial: 'comments/index', locals: { comments: @comments, select_food_prep: @select_food_prep } %>
           </div>

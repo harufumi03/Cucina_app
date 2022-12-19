@@ -1,5 +1,5 @@
 <div class="container">
-  <h1><%= "登録済仕込み一覧" %></h1>
+  <h2 class="bi bi-wallet"><%= "登録済仕込み一覧" %></h2>
   <%= link_to " 新しく仕込みを登録する", new_food_prep_path, class: "bi bi-plus-circle-fill btn btn-primary"%>
   <br><br>
     <div class="container">
@@ -34,7 +34,7 @@
     <tbody>
       <% @group_food_preps.each do |food_prep| %>
         <tr>
-          <td><%= food_prep.name %></td>
+          <td class="bi bi-chevron-right"><%= food_prep.name %></td>
           <td><%= food_prep.ingredient %></td>
           <td>
             <% food_prep.labels.each do |label| %>

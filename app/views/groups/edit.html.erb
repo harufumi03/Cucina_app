@@ -7,7 +7,7 @@
             <h1>グループ編集</h1>
             <% if @group.errors.any? %>
               <div id="error_explanation">
-                <h3><%= pluralize(@group.errors.count, "件の") %> エラーがあります</h3>
+                <h4><%= pluralize(@group.errors.count, "件の") %> エラーがあります</h4>
                   <% @group.errors.full_messages.each do |message| %>
                     <%= message %><br>
                   <% end %>

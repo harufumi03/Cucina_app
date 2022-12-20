@@ -2,13 +2,13 @@
 <%= form_with(model: @group, local: true) do |f| %>
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col-10">
+      <div class="col-8">
         <div class="card">
           <div class="card-body">
-            <h1>グループ作成</h1>
+            <h2>グループ作成</h2>
             <% if @group.errors.any? %>
               <div id="error_explanation">
-                <h3><%= pluralize(@group.errors.count, "件の") %> エラーがあります</h3>
+                <h4><%= pluralize(@group.errors.count, "件の") %> エラーがあります</h4>
                   <% @group.errors.full_messages.each do |message| %>
                     <%= message %><br>
                   <% end %>
@@ -27,3 +27,5 @@
     </div>        
   </div>  
 <% end %>
+<br>
+<%= link_to "戻る", user_path(current_user.id), id: "back", class: "bi bi-skip-backward-fill btn btn-primary btn-sm" %>  

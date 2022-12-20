@@ -4,39 +4,37 @@
       <div class="card">
         <div class="card-body">
           <h2 class="border-bottom">グループ詳細</h2><br>
-          <h3 class="bi bi-bookmark-check-fill">グループ名</h3>
-          <p class="border-bottom"><%= @group.name %></p>
-          <h3 class="bi bi-person-check-fill">オーナー</h3>
-          <p class="border-bottom"><%= @group.owner.name %>
-          <h3 class="bi bi-people-fill">メンバー</h3>
-          <% @group.users.each do |user| %>
-            <p class="border-bottom"><%= user.name %></p>
-          <% end %>
-
-          <h3 class="bi bi-cursor-fill">招待</h3>
-          <%= form_with(model: :group_user, scope: :post, url: group_group_users_path(@group), local: true) do |f| %>
-            <%= f.label :email, class: "bi bi-envelope"  %>
-            <%= f.email_field :email, class: "form-control", placeholder: "sample@example.com" %><br>
-            <div class="button">
-              <%= f.submit '招待する', class: "btn btn-info" %>
-            </div><br>
-          <% end %> 
-            <% if current_user == @group.owner %>
-              <%= link_to "グループを編集", edit_group_path(@group), class: "bi bi-pencil-fill btn btn-success btn-sm", id: "edit_group" %>
-              <%= link_to "グループを削除", @group, method: :delete, data:{ confirm: "削除しますか？"}, class: "bi bi-trash3-fill btn btn-danger btn-sm" %>
-            <% else %>
-              <% if @group.users.ids.include?(current_user.id) %>
-                <%= link_to "グループから退出", group_group_user_path(@group), method: :delete, data: { confirm: "グループから退出しますか？"}, class: "btn btn-secondary btn-sm" %>
-              <% end %>
+            <h4 class="bi bi-bookmark-check-fill">グループ名</h4>
+            <p class="border-bottom"><%= @group.name %></p>
+            <h4 class="bi bi-person-check-fill">オーナー</h4>
+            <p class="border-bottom"><%= @group.owner.name %>
+            <h4 class="bi bi-people-fill">メンバー</h4>
+            <% @group.users.each do |user| %>
+              <p class="border-bottom"><%= user.name %></p>
             <% end %>
-            <br><br>
-            <%= link_to "戻る", user_path(current_user.id), id: "back", class: "bi bi-skip-backward-fill btn btn-sm btn-primary" %>
-          </div>
-          </div>  
+          <h4 class="bi bi-cursor-fill">招待</h4>
+            <%= form_with(model: :group_user, scope: :post, url: group_group_users_path(@group), local: true) do |f| %>
+              <%= f.label :email, class: "bi bi-envelope"  %>
+              <%= f.email_field :email, class: "form-control", placeholder: "sample@example.com" %><br>
+              <div class="button">
+                <%= f.submit '招待する', class: "btn btn-info" %>
+              </div><br>
+            <% end %> 
+          <% if current_user == @group.owner %>
+            <%= link_to "グループを編集", edit_group_path(@group), class: "bi bi-pencil-fill btn btn-success btn-sm", id: "edit_group" %>
+            <%= link_to "グループを削除", @group, method: :delete, data:{ confirm: "削除しますか？"}, class: "bi bi-trash3-fill btn btn-danger btn-sm" %>
+          <% else %>
+            <% if @group.users.ids.include?(current_user.id) %>
+              <%= link_to "グループから退出", group_group_user_path(@group), method: :delete, data: { confirm: "グループから退出しますか？"}, class: "btn btn-secondary btn-sm" %>
+            <% end %>
+          <% end %>
+          <br><br>
+          <%= link_to "戻る", user_path(current_user.id), id: "back", class: "bi bi-skip-backward-fill btn btn-sm btn-primary" %>
         </div>
-      </div>
+      </div>  
     </div>
-  </div>        
+  </div>
 </div>
+ 
 
   

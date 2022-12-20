@@ -4,13 +4,12 @@
   <%= link_to '  カテゴリを登録する', new_label_path, class: "btn btn-primary bi bi-plus-circle-fill" %>
   <br><br>
   <table class = "table">
-    <thead>
+    <thead class="border-top">
       <tr>
         <th><%= 'カテゴリ名' %></th>
         <th><%= '登録仕込み数' %></th>
       </tr>
     </thead>
-
     <tbody>
       <% @labels.each do |label| %>
         <tr>

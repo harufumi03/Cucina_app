@@ -7,27 +7,25 @@
           <h2 class="bi bi-tag-fill"><%= 'カテゴリ編集' %></h2>
             <% if @label.errors.any? %>
               <div id="error_explanation">
-                <h3><%= pluralize(@label.errors.count, "件の") %> エラーがあります</h3>
+                <h4><%= pluralize(@label.errors.count, "件の") %> エラーがあります</h4>
                   <% @label.errors.full_messages.each do |message| %>
                     <%= message %>
                   <% end %>
               </div>
             <% end %>
-            
-            <div class="field">
-              <%= form.label 'カテゴリ名' %>
-              <%= form.text_field :name, class: "form-control" %>
-            </div>
-            <br>
-            <div class="actions">
-              <%= form.submit '編集する', class: "btn btn-sm btn-success" %>
-            </div>
+          <div class="field">
+            <%= form.label 'カテゴリ名' %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+          <br>
+          <div class="actions">
+            <%= form.submit '編集する', class: "btn btn-sm btn-success" %>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 <br>          
 <%= link_to t(' 戻る'), labels_path, id: "back", class: "bi bi-skip-backward-fill btn btn-sm btn-primary" %>
-</div>
 <% end %>

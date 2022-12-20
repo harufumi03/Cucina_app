@@ -8,30 +8,29 @@
               <div class="card-body">
                 <h2 class="bi bi-person-circle">アカウント詳細</h2>
                 <br><br>
-                <p class="border-bottom">名前 : <%= @user.name %></p>
-                <p class="border-bottom">メールアドレス : <%= @user.email %></p>
-                <% @groups.each do |group| %>
-                  <% if group.users.ids.include?(current_user.id) %>
-                    <p class="border-bottom">グループ名 : <%= group.name %></p>
+                  <p class="border-bottom">名前 : <%= @user.name %></p>
+                  <p class="border-bottom">メールアドレス : <%= @user.email %></p>
+                  <% @groups.each do |group| %>
+                    <% if group.users.ids.include?(current_user.id) %>
+                      <p class="border-bottom">グループ名 : <%= group.name %></p>
+                    <%end%>  
                   <%end%>  
-                <%end%>  
-                <% if current_user.admin? %>
-                  <%= link_to '管理者ページ', rails_admin_path, class: "bi bi-file-lock2 btn btn-secondary" %><br><br>
-                <% end %>
-                <% @groups.each do |group| %>
-                  <% if group.users.ids.include?(current_user.id) %>
-                    <%= link_to " 所属グループ詳細[#{group.name}]", group_path(@user.groups.ids), class: "bi bi-people-fill btn btn-info btn-sm" %>
-                  <%end%>
-                <% end %>
-                </div>
-              </div>  
-            <br>
-            <%= link_to " アカウント編集", edit_user_registration_path(@user.id), class: "bi bi-pencil-fill  btn btn-success" %>
-          </div>
+                  <% if current_user.admin? %>
+                    <%= link_to '管理者ページ', rails_admin_path, class: "bi bi-file-lock2 btn btn-secondary" %><br><br>
+                  <% end %>
+                  <% @groups.each do |group| %>
+                    <% if group.users.ids.include?(current_user.id) %>
+                      <%= link_to " 所属グループ詳細[#{group.name}]", group_path(@user.groups.ids), class: "bi bi-people-fill btn btn-info btn-sm" %>
+                    <%end%>
+                  <% end %>
+              </div>
+            </div>  
+          <br>
+          <%= link_to " アカウント編集", edit_user_registration_path(@user.id), class: "bi bi-pencil-fill  btn btn-success" %>
         </div>
       </div>
-    </div>        
-  </div>  
+    </div>
+  </div>        
+</div>  
 <br>
-
 <%= link_to "  戻る", food_preps_path, id: "back", class: "bi bi-skip-backward-fill btn btn-primary" %>

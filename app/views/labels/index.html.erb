@@ -6,8 +6,8 @@
   <table class = "table">
     <thead class="border-top">
       <tr>
-        <th><%= 'カテゴリ名' %></th>
-        <th><%= '登録仕込み数' %></th>
+        <th>カテゴリ名</th>
+        <th>登録仕込み数</th>
       </tr>
     </thead>
     <tbody>
@@ -15,8 +15,8 @@
         <tr>
           <td><%= label.name%></td>
           <td><%= label.food_preps.count %></td>
-          <td><%= link_to t(' 編集する'), edit_label_path(label), class: "bi bi-pencil-fill btn btn-outline-success" %></td>
-          <td><%= link_to t(' 削除する'), label_path(label), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-outline-danger bi bi-trash3-fill" %></td>
+          <td><%= link_to ' 編集する', edit_label_path(label), class: "bi bi-pencil-fill btn btn-outline-success" %></td>
+          <td><%= link_to ' 削除する', label_path(label), method: :delete, data: { confirm: '本当に削除しますか？' }, class: "btn btn-outline-danger bi bi-trash3-fill" %></td>
         </tr>
       <% end %>
     </tbody>

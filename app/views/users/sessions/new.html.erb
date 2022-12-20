@@ -5,42 +5,41 @@
     <% end %>
   </div>
 <br>     
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-8">
-          <div class="card">
-            <div class="card-body">
-              <h2>ログイン</h2>
-              <div class="form-group">
-                <%= f.label "メールアドレス"%><br />
-                  <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-8">
+        <div class="card">
+          <div class="card-body">
+            <h2>ログイン</h2>
+            <div class="form-group">
+              <%= f.label "メールアドレス"%><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label "パスワード" %><br/>
+                <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "form-control" %>
+            </div>
+            <% if devise_mapping.rememberable? %>
+              <div class="form-check">
+                <%= f.check_box :remember_me %>
+                <%= f.label "ログインを記憶する" %>
               </div>
-              <div class="form-group">
-                <%= f.label "パスワード" %><br/>
-                  <%= f.password_field :password, autocomplete: "current-password", placeholder: "password", class: "form-control" %>
-              </div>
-              <% if devise_mapping.rememberable? %>
-                <div class="form-check">
-                  <%= f.check_box :remember_me %>
-                  <%= f.label "ログインを記憶する" %>
-                </div>
-              <% end %>
-              <div class="button">
-                <%= f.submit "ログイン", class: "btn btn-info"%>
-              </div>
-            </div>  
+            <% end %>
+            <div class="button">
+              <%= f.submit "ログイン", class: "btn btn-info"%>
+            </div>
           </div>  
         </div>  
-      </div>
-    </div>  
-  <% end %>
-    
+      </div>  
+    </div>
+  </div>  
+<% end %>   
   <div class="text-center">
-  <br>
-  <%= render "users/shared/links" %>
-  <br>
-  <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-primary" %><br><br>
-  <%= link_to '管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post, class: "btn btn-primary" %>
+    <br>
+    <%= render "users/shared/links" %>
+    <br>
+    <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: "btn btn-outline-primary" %><br><br>
+    <%= link_to '管理者ログイン（閲覧用）', users_admin_guest_sign_in_path, method: :post, class: "btn btn-outline-primary" %>
   </div>
 </div>

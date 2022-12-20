@@ -2,36 +2,41 @@
   <%= form_with(model: @food_prep, local: true) do |form| %>
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-8">
+        <div class="col-10">
           <div class="card">
             <div class="card-body">
-              <h1><%= '仕込み編集' %></h1>
-              <% if @food_prep.errors.any? %>
-                <div id="error_explanation">
-                  <h3><%= pluralize(@food_prep.errors.count, "件の") %> エラーがあります</h3>
-                    <% @food_prep.errors.full_messages.each do |message| %>
-                      <%= message %><br>
-                    <% end %>
-                </div>
-              <% end %>
-              <br>
-              <div class="form-group">
-                <%= form.label "仕込み項目名" %>
-                <%= form.text_field :name, class: "form-control" %>
-              </div>
-              <br>
-              <div class="form-group">
-                <%= form.label "使用食材" %>
-                <%= form.text_area :ingredient, class: "form-control" %>
-              </div>
-              <br>
-              <div class="form-group">
-                  <%= form.label "カテゴリ" %> :
-                <% Label.all.each do |label| %>
-                  <%= form.check_box :label_ids, { multiple: true, include_hidden: false }, label[:id] %>
-                  <%= label.name %>
+              <h2>仕込み内容編集</h2>
+                <% if @food_prep.errors.any? %>
+                  <div id="error_explanation">
+                    <h3><%= pluralize(@food_prep.errors.count, "件の") %> エラーがあります</h3>
+                      <% @food_prep.errors.full_messages.each do |message| %>
+                        <%= message %><br>
+                      <% end %>
+                  </div>
                 <% end %>
+              <br>
+              <div class="card">
+                <div class="card-body">
+                  <div class="form-group">
+                    <%= form.label "仕込み項目名" %>
+                    <%= form.text_field :name, class: "form-control" %>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <%= form.label "使用食材" %>
+                    <%= form.text_area :ingredient, class: "form-control" %>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                      <%= form.label "カテゴリ" %> :
+                    <% Label.all.each do |label| %>
+                      <%= form.check_box :label_ids, { multiple: true, include_hidden: false }, label[:id] %>
+                      <%= label.name %>
+                    <% end %>
+                  </div>
+                </div>
               </div>
+              <br>
               <div class="button">
                 <%= form.submit '編集する', class: "btn btn-success" %>
               </div>
@@ -41,6 +46,6 @@
       </div>        
     </div>
   <br>    
-  <%= link_to t('戻る'), food_preps_path(@food_prep), class: "bi bi-skip-backward-fill btn btn-sm btn-primary" %>
   <% end %>
+<%= link_to t('戻る'), food_preps_path(@food_prep), class: "bi bi-skip-backward-fill btn btn-sm btn-primary" %>
 </div>

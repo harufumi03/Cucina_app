@@ -4,7 +4,7 @@
     <div class="col-8">
       <div class="card">
         <div class="card-body"> 
-        <h1><%= "仕込み選択" %></h1>
+        <h1>仕込み選択</h1>
         <p>仕込みの予定を追加します</p><br>
           <% if @select_food_prep.errors.any? %>
             <div id="error_explanation">
@@ -40,5 +40,5 @@
   </div>
 </div>
 <br>
-<%= link_to t('戻る'), select_food_preps_path, class: "bi bi-skip-backward-fill btn btn-sm btn-primary"  %>        
+<%= link_to '戻る', select_food_preps_path, class: "bi bi-skip-backward-fill btn btn-sm btn-primary"  %>        
 <% end %>

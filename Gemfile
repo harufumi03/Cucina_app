@@ -42,6 +42,7 @@ group :development do
   gem "capistrano-rails", "~> 1.6", require: false 
   gem 'capistrano-safe-deploy-to'
   gem 'capistrano3-unicorn'
+  gem 'rubocop', require: false
 end
 
 group :test do

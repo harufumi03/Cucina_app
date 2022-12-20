@@ -19,9 +19,10 @@
   <p>チーム全体で業務管理を行うことで効率を上げます</p>
   <p>チームで協力しお客様に最高の料理を提供しましょう</p>
   <br>
+  <br>
   <% if user_signed_in? %>
     <%= link_to 'アカウント詳細', user_path(current_user.id), class: "bi bi-person-circle btn btn-info" %><br><br>
-    <%= link_to " グループを作成する", new_group_path, class: "bi bi-plus-square-fill btn btn-primary" %>
+    <%= link_to " グループを作成する", new_group_path, class: "bi bi-plus-square-fill btn btn-primary"%> 
   <% else %>
     <%= link_to " ログイン", new_user_session_path, class: "btn btn-info bi bi-door-open-fill" %><br><br>
     <%= link_to " 新規登録", new_user_registration_path, class: "bi bi-person-plus-fill btn btn-info" %><br><br>

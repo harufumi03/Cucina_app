@@ -11,12 +11,10 @@
                   <strong><%= '仕込み項目名' %>:</strong>
                   <%= @food_prep.name %>
                 </p>
-
                 <p class="border-bottom">
                   <strong><%= '使用食材' %>:</strong>
                   <%= @food_prep.ingredient %>
                 </p>
-
                 <p class="border-bottom">
                   <strong><%= "カテゴリ" %>:</strong>
                   <% @food_prep.labels.each do |label| %>

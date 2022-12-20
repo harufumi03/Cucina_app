@@ -7,9 +7,15 @@ class FoodPrepsController < ApplicationController
     @group_food_preps = @food_preps.where(group_id: current_user.group_ids)
   end
 
+  def show
+  end
+
   def new
     @food_prep = FoodPrep.new
     @groups = GroupUser.where(user_id: current_user.id)
+  end
+
+  def edit
   end
 
   def create
@@ -20,13 +26,7 @@ class FoodPrepsController < ApplicationController
       @groups = GroupUser.where(user_id: current_user.id)
       render :new, notice: '仕込みの作成に失敗しました'
     end
-  end
-
-  def show
-  end
-  
-  def edit
-  end
+  end  
 
   def update
     if @food_prep.update(food_prep_params)

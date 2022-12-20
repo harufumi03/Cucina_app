@@ -1,6 +1,15 @@
 class CommentsController < ApplicationController
   before_action :set_select_food_prep
   
+  def edit
+    @comment = @select_food_prep.comments.find(params[:id])
+    respond_to do |format|
+      flash.now[:notice] = 'コメントの編集中'
+      format.html { redirect_to @select_food_prep }
+      format.js { render :edit }
+    end
+  end
+
   def create
     @comment = @select_food_prep.comments.build(comment_params)
     @comment.user_id = current_user.id
@@ -14,15 +23,6 @@ class CommentsController < ApplicationController
       end
     end
   end  
-
-  def edit
-    @comment = @select_food_prep.comments.find(params[:id])
-    respond_to do |format|
-      flash.now[:notice] = 'コメントの編集中'
-      format.html { redirect_to @select_food_prep }
-      format.js { render :edit }
-    end
-  end
 
   def update
     @comment = @select_food_prep.comments.find(params[:id])

@@ -4,6 +4,12 @@ class SelectFoodPrepsController < ApplicationController
     @group_select_food_preps = @select_food_preps.where(user_id: current_user.id)
   end
 
+  def show
+    @select_food_prep = SelectFoodPrep.find(params[:id])
+    @comments = @select_food_prep.comments
+    @comment = @select_food_prep.comments.build
+  end
+
   def new
     @select_food_prep = SelectFoodPrep.new
     @groups = GroupUser.where(user_id: current_user.id)
@@ -19,12 +25,6 @@ class SelectFoodPrepsController < ApplicationController
       @groups = GroupUser.where(user_id: current_user.id)
       render :new
     end
-  end
-
-  def show
-    @select_food_prep = SelectFoodPrep.find(params[:id])
-    @comments = @select_food_prep.comments
-    @comment = @select_food_prep.comments.build
   end
 
   def destroy

@@ -5,11 +5,11 @@ class User < ApplicationRecord
         :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
-  validates :email, presence: true, length: { maximum: 255 }, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+  validates :email, presence: true, length: { maximum: 255 }, uniqueness: true,
+                    format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :password, length: { minimum: 6 }
   has_many :select_food_preps, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :groups, foreign_key: :owner_id
   has_many :group_users, dependent: :destroy
   has_many :groups, through: :group_users, source: :group
 

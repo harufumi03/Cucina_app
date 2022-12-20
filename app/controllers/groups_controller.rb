@@ -1,8 +1,14 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
+  def show
+  end
+
   def new
     @group = Group.new
+  end
+
+  def edit
   end
 
   def create
@@ -15,12 +21,6 @@ class GroupsController < ApplicationController
       flash.now[:notice] = "グループの作成に失敗しました"
       render :new
     end
-  end
-
-  def show
-  end
-
-  def edit
   end
 
   def update

@@ -9,6 +9,9 @@ class LabelsController < ApplicationController
     @label = Label.new
   end
 
+  def edit
+  end
+
   def create
     @label = Label.new(label_params)
     if @label.save
@@ -16,9 +19,6 @@ class LabelsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
   end
 
   def update

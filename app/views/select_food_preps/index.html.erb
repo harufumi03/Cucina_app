@@ -4,7 +4,7 @@
       <div class="col-8">
         <div class="card">
           <div class="card-body">
-            <h1><%= '本日の仕込み' %></h1>
+            <h1>本日の仕込み</h1>
             <h3><%= Date.current.strftime('%Y年 %m月 %d日') %></h3>
             <%= link_to " 新しく仕込みを選択する", new_select_food_prep_path, class: "bi bi-plus-circle-fill btn btn-primary"%>
           </div>
@@ -17,14 +17,13 @@
   <table class = "table">
     <thead class="border-top">
       <tr>
-        <th><%= "実行済み"%></th>
-        <th><%= "仕込み項目名" %></th>
-        <th><%= "使用食材" %></th>
-        <th><%= "実施日" %></th>
-        <th><%= "担当者" %></th>
+        <th>実行済み</th>
+        <th>仕込み項目名</th>
+        <th>使用食材</th>
+        <th>実施日</th>
+        <th>担当者</th>
       </tr>
     </thead>
-
     <tbody>
       <% @group_select_food_preps.each do |select_food_prep| %>
         <% if select_food_prep.to_do_at == Date.current %>
@@ -34,8 +33,8 @@
             <td><%= select_food_prep.food_prep.ingredient %></td>
             <td><%= select_food_prep.to_do_at %></td>
             <td><%= select_food_prep.user.name %></td>
-            <td><%= link_to t('詳細'), select_food_prep_path(select_food_prep), method: :get, class: "bi bi-file-text-fill btn btn-outline-success btn-sm" %></td>
-            <td><%= link_to t('削除'), select_food_prep_path(select_food_prep), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "bi bi-trash3-fill btn btn-outline-danger btn-sm"  %></td>
+            <td><%= link_to '詳細', select_food_prep_path(select_food_prep), method: :get, class: "bi bi-file-text-fill btn btn-outline-success btn-sm" %></td>
+            <td><%= link_to '削除', select_food_prep_path(select_food_prep), method: :delete, data: { confirm: "本当に削除しますか？" }, class: "bi bi-trash3-fill btn btn-outline-danger btn-sm"  %></td>
           </tr>
         <% end %>
       <% end %>  

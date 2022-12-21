@@ -43,7 +43,6 @@ class FoodPrepsController < ApplicationController
 
   def search
     @results = @search_food_prep.result.where(group_id: current_user.group_ids)
-    # @group_results = @results.where(group_id: current_user.group_ids)
   end
 
   private

@@ -1,7 +1,7 @@
 class SelectFoodPrepsController < ApplicationController
   def index
     @select_food_preps = SelectFoodPrep.all
-    @group_select_food_preps = @select_food_preps.where(user_id: current_user.id)
+    @group_select_food_preps = @select_food_preps.where(group_id: current_user.group_ids)
   end
 
   def show
